@@ -19,5 +19,5 @@ deploy:
     github_token: $GITHUB_TOKEN
     repo: edoren/edoren.github.io
     local_dir: public/
-    target_branch:
+    target_branch: master
     fqdn: edoren.me
