@@ -2,7 +2,7 @@
 <section id="content">
   <h1 class="page-title">{{ .Title }}</h1>
   <ul>
-    {{ range .Data.Pages }}
+    {{ range where .Data.Pages "Type" "blog" }}
       <li>
         <a href="{{ .Permalink }}">{{ .Title }}</a> &middot;
         <time>{{ .Date.Format "Jan 2, 2006" }}</time>
