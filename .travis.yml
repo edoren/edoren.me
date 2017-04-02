@@ -9,3 +9,14 @@ script:
     - wt compile static/scss/ --build static/css/ --style=compressed
     - hugo
     - rm -r public/scss
+
+deploy:
+    provider: pages
+    skip_cleanup: true
+    on:
+        branch: master
+
+    github_token: $GITHUB_TOKEN
+    repo: edoren/edoren.github.io
+    local_dir: public/
+    target_branch: master
