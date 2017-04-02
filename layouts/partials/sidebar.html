@@ -1,0 +1,36 @@
+<section id="sidebar">
+  <div class="sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="{{ "/" | absURL }}">
+        {{ if isset .Site.Params "gravatarhash" }}
+          <img src="https://www.gravatar.com/avatar/{{ .Site.Params.gravatarHash }}?s=200"
+              alt="Gravatar" title="{{ .Site.Author.name }}">
+        {{ end }}
+        <h1>{{ .Site.Author.name }}</h1>
+        {{ with .Site.Params.tagline }}<p class="lead">{{ . | markdownify }}</p>{{ end }}
+      </a>
+    </div>
+
+    <ul class="sidebar-nav">
+      {{ range .Site.Params.navlinks }}
+        <li class="sidebar-nav-link"><a href="{{ .url | absURL }}">{{ .name }}</a></li>
+      {{end}}
+    </ul>
+
+    <div class="sidebar-nav-icons">
+      {{ with .Site.Params.github }}<a href="{{ . }}"><i class="fa fa-github-square fa-2x"></i></a>{{ end }}
+      {{ with .Site.Params.bitbucket }}<a href="{{ . }}"><i class="fa fa-bitbucket-square fa-2x"></i></a>{{ end }}
+      {{ with .Site.Params.stackOverflow }}<a href="{{ . }}"><i class="fa fa-stack-overflow fa-2x"></i></a>{{ end }}
+      {{ with .Site.Params.linkedin }}<a href="{{ . }}"><i class="fa fa-linkedin-square fa-2x"></i></a>{{ end }}
+      {{ with .Site.Params.googleplus }}<a href="{{ . }}"><i class="fa fa-google-plus-square fa-2x"></i></a>{{ end }}
+      {{ with .Site.Params.facebook }}<a href="{{ . }}"><i class="fa fa-facebook-square fa-2x"></i></a>{{ end }}
+      {{ with .Site.Params.twitter }}<a href="{{ . }}"><i class="fa fa-twitter-square fa-2x"></i></a>{{ end }}
+      {{ with .Site.Params.youtube }}<a href="{{ . }}"><i class="fa fa-youtube-square fa-2x"></i></a>{{ end }}
+      {{ with .Site.Params.email }}<a href="mailto:{{ . }}"><i class="fa fa-envelope-square fa-2x"></i></a>{{ end }}
+      {{ if .Site.Params.rss }}<a href="{{ "/index.xml" | absURL }}" type="application/rss+xml"><i class="fa fa-rss-square fa-3x"></i></a>{{ end }}
+    </div>
+
+    <p class="sidebar-copyright">Copyright &copy; {{ now.Year }} Manuel Sabogal<br/>
+        Powered by <a href="http://gohugo.io">Hugo</a>. Theme based on <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+  </div>
+</section>

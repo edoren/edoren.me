@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  {{ partial "meta.html" . }}
+
+  <title>{{ .Title }} - {{ .Site.Author.name }}</title>
+
+  {{ partial "header_includes.html" . }}
+
+  <link rel="apple-touch-icon" href="{{ "/apple-touch-icon.png" | absURL }}" />
+  <link rel="icon" href="{{ "/favicon.png" | absURL }}">
+
+  {{ if .RSSLink }}<link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Title }}" />{{ end }}
+</head>
+
+<body class="theme-base-08-">
+{{ partial "sidebar.html" . }}

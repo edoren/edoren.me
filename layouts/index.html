@@ -1,0 +1,11 @@
+{{ partial "header.html" . }}
+<section id="content">
+  {{ $paginator := .Paginate (where .Data.Pages.ByDate.Reverse "Type" "blog") 5}}
+  {{ range $paginator.Pages }}
+    {{ .Render "summary"}}
+  {{ end }}
+  <div class="text-center center-block">
+    {{ partial "pagination.html" . }}
+  </div>
+</section>
+{{ partial "footer.html" . }}

@@ -1,0 +1,20 @@
+<article class="post">
+  <header>
+    <h1 class="post-title">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h1>
+    <span class="post-date">
+      {{ .Date.Format "Jan 2, 2006" }}
+      {{ if isset .Params "categories" }} &middot;
+        {{ range .Params.categories }}
+          <a class="label" href="{{ "/categories/" | absURL }}{{ . | urlize }}">{{ . }}</a>
+        {{ end }}
+      {{ end }}
+    </span>
+  </header>
+
+  {{ .Summary }}
+  <footer>
+    <a href="{{ .Permalink }}">Read more →</a>
+  </footer>
+</article>

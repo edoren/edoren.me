@@ -1,0 +1,11 @@
+language: go
+go: 1.8
+
+install:
+    - go get -u github.com/spf13/hugo
+    - go get -u github.com/wellington/wellington/wt
+
+script:
+    - wt compile static/scss/ --build static/css/ --style=compressed
+    - hugo
+    - rm -r public/scss

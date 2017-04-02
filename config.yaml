@@ -1,0 +1,30 @@
+baseurl: "http://edoren.me/"
+title: "Manuel Sabogal"
+languageCode: "en-us"
+MetaDataFormat: "yaml"
+
+author:
+    name: "Manuel Sabogal"
+
+taxonomies:
+    tag: "tags"
+    category: "categories"
+
+params:
+    tagline: "Software Development"
+
+    highlight: "monokai-sublime"
+
+    disqusShortname: "edoren"
+    googleAnalytics: "UA-49027257-3"
+    gravatarHash: "fc2e213fc8d2758e7e35017ddd0e2566"
+
+    email: "mfer32@gmail.com"
+    github: "https://github.com/edoren"
+    twitter: "https://twitter.com/ItsEdoren"
+
+    navlinks:
+        - name: Blog
+          url: "blog/"
+        - name: About
+          url: "about/"

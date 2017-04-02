@@ -1,0 +1,600 @@
+
+/*
+ * Contents
+ *
+ * Body resets
+ * Custom type
+ * Messages
+ * Posts and pages
+ * Labels
+ * Pagination
+ * Sidebar
+ * Content
+ * Reverse layout
+ * Themes
+ */
+
+/*
+ * Global resets
+ *
+ * Update the foundational and global aspects of the page.
+ */
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+    font-family: "PT Sans", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+
+    @media (min-width: 38em) {
+        font-size: 20px;
+    }
+
+    @media (min-width: 48em) {
+        font-size: 16px;
+    }
+
+    @media (min-width: 58em) {
+        font-size: 20px;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    color: #515151;
+    background-color: #fff;
+    -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+}
+
+
+/* No `:visited` state is required by default (browsers will use `a`) */
+a {
+    color: #268bd2;
+    text-decoration: none;
+
+    strong {
+        color: inherit;
+    }
+
+    // `:focus` is linked to `:hover` for basic accessibility
+    &:hover, &:focus {
+        text-decoration: underline;
+        outline: none;
+    }
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .5rem;
+    font-weight: bold;
+    line-height: 1.25;
+    color: #313131;
+    text-rendering: optimizeLegibility;
+}
+h1 {
+    font-size: 2rem;
+}
+h2 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+h3 {
+    margin-top: 1.5rem;
+    font-size: 1.25rem;
+}
+h4, h5, h6 {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+/* Body text */
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+strong {
+    color: #303030;
+}
+
+/* Lists */
+ul, ol, dl {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+dt {
+    font-weight: bold;
+}
+dd {
+    margin-bottom: .5rem;
+}
+
+/* Misc */
+hr {
+    position: relative;
+    margin: 1.5rem 0;
+    border: 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #fff;
+}
+
+abbr {
+    font-size: 85%;
+    font-weight: bold;
+    color: #555;
+    text-transform: uppercase;
+    &[title] {
+        cursor: help;
+        border-bottom: 1px dotted #e5e5e5;
+    }
+}
+
+/* Code */
+code, pre {
+    font-family: "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+}
+code {
+    padding: .1em .3em;
+    font-size: .75rem;
+    color: #bf616a;
+    background-color: #f5f5f5;
+    border-radius: 3px;
+}
+pre {
+    display: block;
+    font-size: .75rem;
+    line-height: 1.4;
+    background-color: #f5f5f5;
+    code.hljs {
+        border-radius: 0px;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+        font-size: 100%;
+        &.hljs-line-numbers {
+            border-radius: 0px;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+            color: #585858;
+            text-align: right;
+            border-right: 1px solid rgba(black, .1);
+        }
+    }
+}
+
+/* Quotes */
+blockquote {
+    padding: .5rem 1rem;
+    margin: .8rem 0;
+    color: #7a7a7a;
+    border-left: .25rem solid #e5e5e5;
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+
+    @media (min-width: 30em) {
+        padding-right: 5rem;
+        padding-left: 1.25rem;
+    }
+}
+
+/* Images */
+img {
+    display: block;
+    max-width: 100%;
+    margin: 0 0 1rem;
+    border-radius: 5px;
+}
+
+/* Tables */
+table {
+    margin-bottom: 1rem;
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    border-collapse: collapse;
+}
+
+td,th {
+    padding: .25rem .5rem;
+    border: 1px solid #e5e5e5;
+}
+
+tbody {
+    tr:nth-child(odd) {
+        td, th {
+            background-color: #f9f9f9;
+        }
+    }
+}
+
+
+/*
+ * Custom type
+ *
+ * Extend paragraphs with `.lead` for larger introductory text.
+ */
+
+.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+
+/*
+ * Messages
+ *
+ * Show alert messages to users. You may add it to single elements like a `<p>`,
+ * or to a parent if there are multiple elements to show.
+ */
+.message {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    color: #717171;
+    background-color: #f9f9f9;
+}
+
+
+/*
+ * Posts and pages
+ *
+ * Each post is wrapped in `.post` and is used on default and post layouts. Each
+ * page is wrapped in `.page` and is only used on the page layout.
+ */
+
+.page,
+.post {
+    margin-bottom: 4em;
+}
+
+/* Blog post or page title */
+.page-title,
+.post-title,
+.post-title a {
+    color: #303030;
+}
+.page-title,
+.post-title {
+    margin-top: 0;
+}
+
+/* Meta data line below post title */
+.post-date {
+    display: block;
+    margin-top: -.5rem;
+    margin-bottom: 1rem;
+    color: #9a9a9a;
+}
+
+/* Related posts */
+.related {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    border-top: 1px solid #eee;
+}
+.related-posts {
+    padding-left: 0;
+    list-style: none;
+    h3 {
+        margin-top: 0;
+    }
+    li {
+        small {
+            font-size: 75%;
+            color: #999;
+        }
+        a:hover {
+            color: #268bd2;
+            text-decoration: none;
+            small {
+                color: inherit;
+            }
+        }
+    }
+}
+
+
+/*
+ * Labels
+ *
+ */
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: bold;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    margin: 0 .25em;
+    background-color: #313131;
+    &:empty {
+        display: none;
+    }
+}
+a {
+    &label {
+        &:hover, &:focus {
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+}
+
+.posts,
+.post-date {
+    a.label {
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+
+/*
+ * Pagination
+ *
+ * Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
+ * there are no more previous or next posts to show.
+ */
+nav.pagination {
+    text-align: center;
+
+    > ul {
+        padding: 0;
+        font-family: "PT Sans", Helvetica, Arial, sans-serif;
+        color: #ccc;
+        margin-bottom: 1rem;
+        list-style-type: none;
+
+        > li {
+            display: inline-block;
+            border: 1px solid #eee;
+
+            margin-right: -5px;  // handle spaces between the li elements
+
+            > a {
+                display: block;
+                padding: 1rem 1.25rem;
+
+                &:hover, &:focus {
+                    text-decoration: none;
+                    color: #23527c;
+                    background-color: #eee;
+                    border-color: #ddd;
+                }
+            }
+
+            &.active > a {
+                z-index: 2;
+                color: #fff;
+                cursor: default;
+                background-color: #337ab7;
+                border-color: #337ab7;
+            }
+
+            &.disabled > a {
+                color: #777;
+                cursor: not-allowed;
+                background-color: #fff;
+                border-color: #ddd;
+            }
+
+            &:first-child {
+                margin-bottom: -1px;
+                    border-top-left-radius:    4px;
+                    border-bottom-left-radius: 4px;
+            }
+
+            &:last-child {
+                border-right: 1px solid #eee;
+                border-top-right-radius:    4px;
+                border-bottom-right-radius: 4px;
+            }
+        }
+    }
+
+    .summary {
+        color: #9a9a9a;
+    }
+}
+
+
+/*
+ * Sidebar
+ *
+ * Flexible banner for housing site name, intro, and "footer" content. Starts
+ * out above content in mobile and later moves to the side with wider viewports.
+ */
+
+ /*
+ * Additional CSS for Hyde-X
+ */
+#sidebar {
+    text-align: center;
+    padding: 1rem 1rem;
+    color: rgba(white,.5);
+    background-color: #202020;
+
+    @media (min-width: 48em) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 18rem;
+        text-align: left;
+    }
+
+    // Sidebar links
+    a {
+        color: #fff;
+    }
+
+    // About section
+    .sidebar-about  {
+        img {
+            margin: 0 auto 0.5rem auto;
+            width: 150px;
+            height: 150px;
+            text-align: center;
+            @media (min-width: 48em) {
+                margin: 0 auto 0.75rem auto;
+                width: 175px;
+                height: 175px;
+            }
+            @media (min-width: 58em) {
+                margin: 0 auto 1rem auto;
+                width: 200px;
+                height: 200px;
+            }
+        }
+        h1 {
+            color: #fff;
+            margin-top: 0;
+            font-family: "Amaranth", serif;
+            font-size: 2.5rem;
+            @media (min-width: 48em) {
+                font-size: 2rem;
+            }
+        }
+        p {
+            color: rgba(white, .5);
+            font-size: 1.5rem;
+            @media (min-width: 48em) {
+                font-size: 1.25rem;
+            }
+        }
+    }
+
+    // Sidebar nav
+    .sidebar-nav {
+        padding-left: 0;
+        list-style: none;
+        margin-bottom: 1rem;
+    }
+    .sidebar-nav-link {
+        display: block;
+        line-height: 1.50;
+        &:hover, &:focus {
+            text-decoration: underline;
+        }
+        &.active {
+            font-weight: bold;
+        }
+    }
+    .sidebar-nav-icons {
+        a:hover, a:focus {
+            color: rgba(white, .7);
+            outline: none;
+        }
+    }
+
+    .sidebar-copyright {
+        margin-top: 1rem;
+        margin-bottom: 0rem;
+        font-size: .5rem;
+    }
+
+    // Sticky sidebar
+    > .sidebar-sticky {
+        @media (min-width: 48em) {
+            position: absolute;
+            right:  1rem;
+            bottom: 1rem;
+            left:   1rem;
+        }
+    }
+}
+
+
+/* Content
+ *
+ * Align the contents of the site above the proper threshold with some margin-fu
+ * with a 25%-wide `.sidebar`.
+ */
+#content {
+    max-width: 100%;
+    padding: 2rem 1rem;
+    margin-left:  auto;
+    margin-right: auto;
+
+    @media (min-width: 48em) {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 19rem;
+        margin-right: 1rem;
+    }
+
+    @media (min-width: 64em) {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        margin-left: 21rem;
+        margin-right: 3rem;
+    }
+
+    > ul {
+        list-style: none;
+        li {
+            margin: 0 0 .5em 0;
+        }
+    }
+}
+
+
+/*
+ * Reverse layout
+ *
+ * Flip the orientation of the page by placing the `.sidebar` on the right.
+ */
+.layout-reverse {
+    #sidebar {
+        @media (min-width: 48em) {
+            left: auto;
+            right: 0;
+        }
+    }
+    #content {
+        @media (min-width: 48em) {
+            margin-left: 2rem;
+            margin-right: 20rem;
+        }
+
+        @media (min-width: 64em) {
+            margin-left: 4rem;
+            margin-right: 22rem;
+        }
+    }
+}
+
+
+/*
+ * Themes
+ *
+ * As of v1.1, Hyde includes optional themes to color the sidebar and links
+ * within blog posts. To use, add the class of your choosing to the `body`.
+ */
+.theme-base-08  {
+    #sidebar {
+        background-color: #ac4142;
+    }
+
+    #content {
+        a.label {
+            background-color: #ac4142;
+        }
+
+    }
+}

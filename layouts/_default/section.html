@@ -1,0 +1,18 @@
+{{ partial "header.html" . }}
+<section id="content">
+  <h1 class="page-title">{{ .Title }}</h1>
+  <ul>
+    {{ range .Data.Pages }}
+      <li>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        {{ if and (isset .Params "categories") (isset .Params "categories") }} &middot;
+          {{ range .Params.categories }}
+            <a class="label" href="{{ "/categories/" | absURL }}{{ . | urlize }}">{{ . }}</a>
+          {{ end }}
+        {{ end }}
+        &middot; <time>{{ .Date.Format "Jan 2, 2006" }}</time>
+      </li>
+    {{ end }}
+  </ul>
+</section>
+{{ partial "footer.html" . }}
