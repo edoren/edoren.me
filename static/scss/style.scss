@@ -16,14 +16,23 @@
 
 
 /*
- * Media query mixins
+ * Variables
  *
- * Media queries wrapped inside mixins to allow reusability
+ * Useful variables to modify the styles
  */
+$sidebar-medium-size: 17rem;
+$sidebar-large-size: 17rem;
+
 $break-small: 38em;
 $break-medium: 48em;
 $break-large: 58em;
 
+
+/*
+ * Media query mixins
+ *
+ * Media queries wrapped inside mixins to allow reusability
+ */
 @mixin min-screen-size($media) {
     @if $media == small {
         @media only screen and (min-width: $break-small) { @content; }
@@ -449,8 +458,7 @@ nav.pagination {
  */
 #sidebar {
     text-align: center;
-    padding: 1rem 1rem;
-    color: rgba(white,.5);
+    padding: 1rem;
     background-color: #202020;
 
     @include min-screen-size(medium) {
@@ -458,8 +466,12 @@ nav.pagination {
         top: 0;
         left: 0;
         bottom: 0;
-        width: 18rem;
+        width: $sidebar-medium-size;
         text-align: left;
+    }
+
+    @include min-screen-size(large) {
+        width: $sidebar-large-size;
     }
 
     // Sidebar links
@@ -559,22 +571,17 @@ nav.pagination {
  */
 #content {
     max-width: 100%;
+    margin: 0;
     padding: 2rem 1rem;
-    margin-left:  auto;
-    margin-right: auto;
 
     @include min-screen-size(medium) {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        margin-left: 19rem;
-        margin-right: 1rem;
+        margin-left: $sidebar-medium-size;
+        padding: 2.5rem 1.5rem;
     }
 
     @include min-screen-size(large) {
-        margin-top: 1.5rem;
-        margin-bottom: 1.5rem;
-        margin-left: 21rem;
-        margin-right: 3rem;
+        margin-left: $sidebar-large-size;
+        padding: 3rem 2.5rem;
     }
 
     > ul {
