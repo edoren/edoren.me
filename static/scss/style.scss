@@ -149,6 +149,7 @@ code {
     color: #bf616a;
     background-color: #f5f5f5;
     border-radius: 3px;
+    white-space: nowrap;
 }
 pre {
     display: block;
@@ -159,6 +160,7 @@ pre {
         border-radius: 0px;
         border-top-right-radius: 3px;
         border-bottom-right-radius: 3px;
+        white-space: pre;
         font-size: 100%;
         &.hljs-line-numbers {
             border-radius: 0px;
