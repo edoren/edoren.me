@@ -25,10 +25,11 @@
 <meta property="article:modified_time" content="{{ .Date.Format "2006-01-02" }}"/>
 
 {{if .Keywords }}
-{{ range .Keywords }}<meta property="article:tag" content="{{ . }}">
+{{ range .Keywords }}
+  <meta property="article:tag" content="{{ . }}">
 {{ end }}
 {{else if isset .Params "tags" }}
-{{ range .Params.tags }}<meta property="article:tag" content="{{ . }}">
+{{ range .Params.tags }}
+  <meta property="article:tag" content="{{ . }}">
 {{ end }}
 {{end}}
-
