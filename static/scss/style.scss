@@ -1,8 +1,8 @@
-
 /*
  * Contents
  *
- * Body resets
+ * Media query mixins
+ * Global resets
  * Custom type
  * Messages
  * Posts and pages
@@ -14,16 +14,37 @@
  * Themes
  */
 
+
+/*
+ * Media query mixins
+ *
+ * Media queries wrapped inside mixins to allow reusability
+ */
+$break-small: 38em;
+$break-medium: 48em;
+$break-large: 58em;
+
+@mixin min-screen-size($media) {
+    @if $media == small {
+        @media only screen and (min-width: $break-small) { @content; }
+    }
+    @else if $media == medium {
+        @media only screen and (min-width: $break-medium) { @content; }
+    }
+    @else if $media == large {
+        @media only screen and (min-width: $break-large) { @content; }
+    }
+}
+
 /*
  * Global resets
  *
  * Update the foundational and global aspects of the page.
  */
-
 * {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
@@ -33,15 +54,15 @@ html {
     margin: 0;
     padding: 0;
 
-    @media (min-width: 38em) {
-        font-size: 20px;
+    @include min-screen-size(small) {
+        font-size: 18px;
     }
 
-    @media (min-width: 48em) {
-        font-size: 16px;
+    @include min-screen-size(medium) {
+        font-size: 18px;
     }
 
-    @media (min-width: 58em) {
+    @include min-screen-size(large) {
         font-size: 20px;
     }
 }
@@ -52,9 +73,8 @@ body {
     color: #515151;
     background-color: #fff;
     -webkit-text-size-adjust: 100%;
-        -ms-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 }
-
 
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
@@ -184,7 +204,7 @@ blockquote {
         margin-bottom: 0;
     }
 
-    @media (min-width: 30em) {
+    @include min-screen-size(small) {
         padding-right: 5rem;
         padding-left: 1.25rem;
     }
@@ -433,7 +453,7 @@ nav.pagination {
     color: rgba(white,.5);
     background-color: #202020;
 
-    @media (min-width: 48em) {
+    @include min-screen-size(medium) {
         position: fixed;
         top: 0;
         left: 0;
@@ -454,12 +474,12 @@ nav.pagination {
             width: 150px;
             height: 150px;
             text-align: center;
-            @media (min-width: 48em) {
+            @include min-screen-size(medium) {
                 margin: 0 auto 0.75rem auto;
                 width: 175px;
                 height: 175px;
             }
-            @media (min-width: 58em) {
+            @include min-screen-size(large) {
                 margin: 0 auto 1rem auto;
                 width: 200px;
                 height: 200px;
@@ -470,14 +490,14 @@ nav.pagination {
             margin-top: 0;
             font-family: "Amaranth", serif;
             font-size: 2.5rem;
-            @media (min-width: 48em) {
+            @include min-screen-size(medium) {
                 font-size: 2rem;
             }
         }
         p {
             color: rgba(white, .5);
             font-size: 1.5rem;
-            @media (min-width: 48em) {
+            @include min-screen-size(medium) {
                 font-size: 1.25rem;
             }
         }
@@ -487,16 +507,24 @@ nav.pagination {
     .sidebar-nav {
         padding-left: 0;
         list-style: none;
-        margin-bottom: 1rem;
-    }
-    .sidebar-nav-link {
-        display: block;
-        line-height: 1.50;
-        &:hover, &:focus {
-            text-decoration: underline;
-        }
-        &.active {
-            font-weight: bold;
+        margin-bottom: 1rem 1rem;
+
+        > li {
+            display: inline;
+            padding: 0 .25rem;
+
+            &:hover, &:focus {
+                text-decoration: underline;
+            }
+            &.active {
+                font-weight: bold;
+            }
+
+            @include min-screen-size(medium) {
+                display: block;
+                padding: 0;
+                line-height: 1.50;
+            }
         }
     }
     .sidebar-nav-icons {
@@ -514,7 +542,7 @@ nav.pagination {
 
     // Sticky sidebar
     > .sidebar-sticky {
-        @media (min-width: 48em) {
+        @include min-screen-size(medium) {
             position: absolute;
             right:  1rem;
             bottom: 1rem;
@@ -535,14 +563,14 @@ nav.pagination {
     margin-left:  auto;
     margin-right: auto;
 
-    @media (min-width: 48em) {
+    @include min-screen-size(medium) {
         margin-top: 1rem;
         margin-bottom: 1rem;
         margin-left: 19rem;
         margin-right: 1rem;
     }
 
-    @media (min-width: 64em) {
+    @include min-screen-size(large) {
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
         margin-left: 21rem;
@@ -565,18 +593,18 @@ nav.pagination {
  */
 .layout-reverse {
     #sidebar {
-        @media (min-width: 48em) {
+        @include min-screen-size(medium) {
             left: auto;
             right: 0;
         }
     }
     #content {
-        @media (min-width: 48em) {
+        @include min-screen-size(medium) {
             margin-left: 2rem;
             margin-right: 20rem;
         }
 
-        @media (min-width: 64em) {
+        @include min-screen-size(large) {
             margin-left: 4rem;
             margin-right: 22rem;
         }
