@@ -256,6 +256,10 @@ tbody {
     margin-bottom: 4em;
 }
 
+.post .footnotes {
+    overflow-x: auto;
+}
+
 /* Blog post or page title */
 .page-title,
 .post-title,
@@ -583,18 +587,17 @@ nav.pagination {
 /*
  * Themes
  *
- * As of v1.1, Hyde includes optional themes to color the sidebar and links
- * within blog posts. To use, add the class of your choosing to the `body`.
+ * This is defaut theme of the blog, it controls the sidebar and links within
+ * blog posts.
  */
-.theme-base-08  {
+.theme-base  {
     #sidebar {
-        background-color: #ac4142;
+        background-color: #202020;
     }
 
     #content {
         a.label {
-            background-color: #ac4142;
+            background-color: #202020;
         }
-
     }
 }
