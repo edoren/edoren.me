@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<html lang="en">
 <head>
   {{ partial "meta.html" . }}
 
@@ -7,10 +7,13 @@
 
   {{ partial "header_includes.html" . }}
 
-  <link rel="apple-touch-icon" type="image/png" href="{{ "/apple-touch-icon.png" | absURL }}" />
-  <link rel="shortcut icon" type="image/png" href="{{ "/favicon.png" | absURL }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ "/apple-touch-icon.png" | absURL }}">
+  <link rel="icon" type="image/png" href="{{ "/favicon-32x32.png" | absURL }}" sizes="32x32">
+  <link rel="icon" type="image/png" href="{{ "/favicon-16x16.png" | absURL }}" sizes="16x16">
+  <link rel="manifest" href="{{ "/manifest.json" | absURL }}">
+  <link rel="mask-icon" href="{{ "/safari-pinned-tab.svg" | absURL }}" color="#5bbad5">
 
-  {{ if .RSSLink }}<link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Title }}" />{{ end }}
+  {{ if .RSSLink }}<link href="{{ "{{ .RSSLink }}" | absURL }}" rel="alternate" type="application/rss+xml" title="{{ .Title }}" />{{ end }}
 </head>
 
 <body class="theme-base-08-">
