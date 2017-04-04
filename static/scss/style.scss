@@ -390,7 +390,7 @@ nav.pagination {
         padding: 0;
         font-family: "PT Sans", Helvetica, Arial, sans-serif;
         color: #ccc;
-        margin-bottom: 1rem;
+        margin-bottom: .25rem;
         list-style-type: none;
 
         > li {
@@ -402,6 +402,10 @@ nav.pagination {
             > a {
                 display: block;
                 padding: 1rem 1.25rem;
+
+                @include min-screen-size(medium) {
+                    padding: .75rem 1rem;
+                }
 
                 &:hover, &:focus {
                     text-decoration: none;
@@ -442,6 +446,13 @@ nav.pagination {
 
     .summary {
         color: #9a9a9a;
+        font-size: 12px;
+        @include min-screen-size(medium) {
+            font-size: 14px;
+        }
+        @include min-screen-size(large) {
+            font-size: 16px;
+        }
     }
 }
 
