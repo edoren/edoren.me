@@ -588,9 +588,18 @@ nav.pagination {
     }
 
     > ul {
+        padding-left: 0;
         list-style: none;
         li {
-            margin: 0 0 .5em 0;
+            margin-bottom: .5rem;
+        }
+    }
+
+    .post-summary {
+        margin-bottom: 2rem;
+        > footer {
+            margin-top: .5rem;
+            text-align: right;
         }
     }
 
