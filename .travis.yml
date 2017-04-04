@@ -9,7 +9,7 @@ install:
 script:
     - hugo
     - wt compile public/scss/ --build public/css/
-    - minify -r public/ -o public/
+    - minify -r public/ -o public/ --html-keep-whitespace --html-keep-document-tags
     - rm -r public/scss
 
 deploy:
