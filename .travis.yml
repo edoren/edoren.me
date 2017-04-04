@@ -4,10 +4,12 @@ go: 1.8
 install:
     - go get github.com/spf13/hugo
     - go get github.com/wellington/wellington/wt
+    - go get github.com/tdewolff/minify/cmd/minify
 
 script:
-    - wt compile static/scss/ --build static/css/ --style=compressed
     - hugo
+    - wt compile public/scss/ --build public/css/
+    - minify -r public/ -o public/
     - rm -r public/scss
 
 deploy:
