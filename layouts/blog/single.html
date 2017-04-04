@@ -2,7 +2,7 @@
 <section id="content">
   <article class="post">
     <header>
-      <h1 class="post-title">{{ .Title }}</h1>
+      <h1 id="title" class="post-title">{{ .Title }}</h1>
       <span class="post-date">
         {{ .Date.Format "Jan 2, 2006" }}
         {{ if isset .Params "categories" }} &middot;
