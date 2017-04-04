@@ -428,13 +428,13 @@ nav.pagination {
 
             &:first-child {
                 margin-bottom: -1px;
-                    border-top-left-radius:    4px;
-                    border-bottom-left-radius: 4px;
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
             }
 
             &:last-child {
                 border-right: 1px solid #eee;
-                border-top-right-radius:    4px;
+                border-top-right-radius: 4px;
                 border-bottom-right-radius: 4px;
             }
         }
@@ -451,10 +451,6 @@ nav.pagination {
  *
  * Flexible banner for housing site name, intro, and "footer" content. Starts
  * out above content in mobile and later moves to the side with wider viewports.
- */
-
- /*
- * Additional CSS for Hyde-X
  */
 #sidebar {
     text-align: center;
@@ -481,6 +477,10 @@ nav.pagination {
 
     // About section
     .sidebar-about  {
+        margin-bottom: .5rem;
+        @include min-screen-size(medium) {
+            margin-bottom: 1rem;
+        }
         img {
             margin: 0 auto 0.5rem auto;
             width: 150px;
@@ -500,15 +500,18 @@ nav.pagination {
         h1 {
             color: #fff;
             margin-top: 0;
+            margin-bottom: 0;
             font-family: "Amaranth", serif;
             font-size: 2.5rem;
             @include min-screen-size(medium) {
                 font-size: 2rem;
+                margin-bottom: .5rem;
             }
         }
         p {
             color: rgba(white, .5);
             font-size: 1.5rem;
+            margin-bottom: 0;
             @include min-screen-size(medium) {
                 font-size: 1.25rem;
             }
@@ -519,7 +522,6 @@ nav.pagination {
     .sidebar-nav {
         padding-left: 0;
         list-style: none;
-        margin-bottom: 1rem 1rem;
 
         > li {
             display: inline;
@@ -539,6 +541,7 @@ nav.pagination {
             }
         }
     }
+
     .sidebar-nav-icons {
         a:hover, a:focus {
             color: rgba(white, .7);
