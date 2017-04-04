@@ -6,11 +6,11 @@ title: Entendiendo el Linkeo en Tiempo de Ejecución en C/C++
 type: other
 ---
 
-Si has llegado a usar C o C++ de seguro alguna vez ha tenido la necesidad de hacer uso de metodos que le faciliten tu trabajo, a nadie le gusta re inventar la rueda (a menos que seas un cavernicola). Y es que muchas veces nos encontramos con casos en los que tenemos que hacer el calculo de una raiz cuadrada con `sqrt`, o simplemente queremos usar `printf` para imprimir un mensaje en la pantalla.
+Si has llegado a usar C o C++ de seguro alguna vez ha tenido la necesidad de hacer uso de métodos que le faciliten tu trabajo, a nadie le gusta re inventar la rueda (a menos que seas un cavernícola). Y es que muchas veces nos encontramos con casos en los que tenemos que hacer el cálculo de una raiz cuadrada con `sqrt`, o simplemente queremos usar `printf` para imprimir un mensaje en la pantalla.
 
-Y si, cada vez que incluimos estos archivos estamos haciendo uso de una Libreria [^1], ya sea la Libreria estandard de C o C++, o alguna otra de la infinidad que existen en Internet.
+Y si, cada vez que incluimos estos archivos estamos haciendo uso de una librería [^1], ya sea la librería estandard de C o C++, o alguna otra de la infinidad que existen en Internet.
 
-Estas Librerias lo que hacen es unirse como parte del código de nuestro ejecutable por medio de una operacion llamada Linking [^2]. Hay dos maneras en las que podemos realizar este proceso, en tiempo de compilación y en tiempo de ejecución.
+Estas librerías lo que hacen es unirse como parte del código de nuestro ejecutable por medio de una operacion llamada Linking [^2]. Hay dos maneras en las que podemos realizar este proceso, en tiempo de compilación y en tiempo de ejecución.
 
 Por motivos de esta guia vamos a enfocarnos en la segunda, pero aún así voy a explicar como el compilador realiza este proceso.
 
@@ -19,12 +19,12 @@ Si haces uso de Linux y alguna vez has compilado desde la consola algún program
 ```bash
 gcc miprograma.c -o miprograma -lpthread
 ```
-¿Te suena?, bueno pues en este caso estamos haciendo Linking compilación. Al agregar la linea `-lpthread` le estamos diciendo al compilador que vamos a hacer uso de una libreria llamada **pthread**, la cual es la libreria de POSIX para el manejo de hilos [^3].
+¿Te suena?, bueno pues en este caso estamos haciendo Linking compilación. Al agregar la linea `-lpthread` le estamos diciendo al compilador que vamos a hacer uso de una librería llamada **pthread**, la cual es la librería de POSIX para el manejo de hilos [^3].
 
-Lo que el compilador realiza al agregar esta linea es que busca en ciertos directorios del sistema si se encuentra dicha librería para posteriomente resolver todos los simbolos (funciones, variables o objetos) que use de ella. En Linux busca archivos del tipo _lib**nombre**.so_ o _lib**nombre**.a_ para librerias dinámicas y estáticas respectivamente. En este caso en especifico hace uso de la libreria _**libpthread.so**_.
+Lo que el compilador realiza al agregar esta linea es que busca en ciertos directorios del sistema si se encuentra dicha librería para posteriomente resolver todos los símbolos (funciónes, variables o objetos) que use de ella. En Linux busca archivos del tipo _lib**nombre**.so_ o _lib**nombre**.a_ para librerías dinámicas y estáticas respectivamente. En este caso en específico hace uso de la librería _**libpthread.so**_.
 
 ## En Tiempo de Ejecución
-La otra alternativa para poder hacer uso de estas librerias, es cargandolas en tiempo ejecución, en la cual haciendo de librerías dinámicas (`.so` en Linux, `.dll` en Windows o `.dylib` en Mac OSX).
+La otra alternativa para poder hacer uso de estas librerías, es cargándolas en tiempo ejecución, por medio de librerías dinámicas (`.so` en Linux, `.dll` en Windows o `.dylib` en Mac OS X).
 
 Para poder hacer esto tenemos que hacer uso de librerías del sistema, en este caso haremos uso del encabezado `<dlfcn.h>` que podemos encontrar en Linux y Mac OSX. En Windows hay alternativa similar que se encuentra en el encabezado `<windows.h>` [^4].
 
@@ -40,7 +40,7 @@ void SayHello(const char* name) {
 ```
 Archivo _HelloLibrary.cpp_
 
-Lo que acabamos de hacer es una funcion que dado una cadena que le pasemos va a imprimir un mensaje de saludo. Si observamos incluye un archivo llamado _**HelloLibrary.hpp**_ el cual tiene el siguiente contenido:
+Lo que acabamos de hacer es una función que dado una cadena que le pasemos va a imprimir un mensaje de saludo. Si observamos incluye un archivo llamado _**HelloLibrary.hpp**_ el cual tiene el siguiente contenido:
 ```c++
 #pragma once
 
@@ -62,18 +62,18 @@ g++ HelloLibrary.cpp -o libHelloLibrary.so -shared -fPIC
 ```
 > NOTA: Si estas en Ubuntu o Debian probablemente debas ejecutar el comando `sudo apt-get install build-essential` para instalar el compilador de C y C++
 
-¿Que acaba de pasar acá?, bueno, le estamos diciendo al compilador que queremos compilar el archivo _**HelloLibrary.cpp**_ y generar una librería llamada _**HelloLibrary.so**_, adicionalmente le pasamos dos parametros más, `-shared` le indica al compilador que queremos hacer un objeto compartido que posteriormente pueda ser Linkeado con otros objetos para crear un ejcutable, `-fPIC` que le dice al compilador que genere código de posición independiente (position-independent code PIC)[^5] el cual es nesario para crear la librería dinámica.
+¿Que acaba de pasar acá?, bueno, le estamos diciendo al compilador que queremos compilar el archivo _**HelloLibrary.cpp**_ y generar una librería llamada _**HelloLibrary.so**_, adicionalmente le pasamos dos parámetros más, `-shared` le indica al compilador que queremos hacer un objeto compartido que posteriormente pueda ser Linkeado con otros objetos para crear un ejecutable, `-fPIC` que le dice al compilador que genere código de posición independiente (position-independent code PIC)[^5] el cual es nesario para crear la librería dinámica.
 
 ### Usando nuestra librería
-Ahora hemos generado nuestra primera librería, ¿pero como hacemos uso de ella?. Para esto vamos a hacer uso de la funciones `dlopen`, `dlclose` y `dlsym` las cuales tienen la siguiente definición:
+Ahora hemos generado nuestra primera librería, ¿pero como hacemos uso de ella?. Para esto vamos a hacer uso de la funciónes `dlopen`, `dlclose` y `dlsym` las cuales tienen la siguiente definición:
 ```c++
 void* dlopen(const char* filename, int flag);
 int dlclose(void* handle);
 void* dlsym(void* handle, const char* symbol);
 ```
-> Podemos leer más de estas funciones en los manuales de Linux, ejecutando el comando `man [funcion]`. Ej `man dlopen`.
+> Podemos leer más de estas funciónes en los manuales de Linux, ejecutando el comando `man [función]`. Ej `man dlopen`.
 
-Necesitamos cargar la libraría que creamos en nuestro programa, para esto haremos uso de `dlopen`:
+Necesitamos cargar la librería que creamos en nuestro programa, para esto haremos uso de `dlopen`:
 ```c++
 void* handle = dlopen("libHelloLibrary.so", RTLD_LAZY);
 ```
@@ -81,17 +81,17 @@ void* handle = dlopen("libHelloLibrary.so", RTLD_LAZY);
 A la hora de cargar una librería, Linux hace una busqueda en ciertos lugares en la siguiente forma:
 
 1. Mira si la librería se encuentra al lado del ejecutable que la llamó
-2. Busca en la variable de entorno LD_LIBRARY_PATH por directios adicionales en los cuales se pueda encontrar
-3. Busca en las librerias del sistema
+2. Busca en la variable de entorno LD_LIBRARY_PATH por directorios adicionales en los cuales se pueda encontrar
+3. Busca en las librerías del sistema
 
-Como en nuestro caso la librería se encontrará al lado de nuestro ejecutable no tendremos ningún problema. Si la funcion se ejecuta correctamente `handle` va a tener almacenada nuestra librería. Si falla devolvera `NULL`.
+Como en nuestro caso la librería se encontrará al lado de nuestro ejecutable no tendremos ningún problema. Si la función se ejecuta correctamente `handle` va a tener almacenada nuestra librería. Si falla devolvera `NULL`.
 
-Ahora vamos a cargar la funcion `SayHello` que declaramos anteriormente, haciendo uso de `dlsym` de la siguiente forma:
+Ahora vamos a cargar la función `SayHello` que declaramos anteriormente, haciendo uso de `dlsym` de la siguiente forma:
 ```
 PFN_SAY_NAME hello = (PFN_SAY_NAME)dlsym(handle, "SayHello");
 ```
 
-Wow, wow!, ¿que pasó acá?, ¿que es ese tipo `PFN_SAY_NAME`?. Ya que `dlsym` devuelve un puntero de tipo `void*`, y lo que necesitamos cargar es un puntero a una funcion debemos tener un tipo que nos permita decir que funcion es (que parametros requiere y que valor devuelve), para esto lo declaramos así:
+Wow, wow!, ¿que pasó acá?, ¿que es ese tipo `PFN_SAY_NAME`?. Ya que `dlsym` devuelve un puntero de tipo `void*`, y lo que necesitamos cargar es un puntero a una función, debemos tener un tipo que nos permita decir que función es (que parámetros requiere y que valor devuelve), para esto lo declaramos así:
 ```c++
 typedef void (*PFN_SAY_NAME)(const char*);
 
@@ -99,7 +99,7 @@ typedef void (*PFN_SAY_NAME)(const char*);
 using PFN_SAY_NAME = decltype(&SayHello);
 ```
 
-Ya solo queda llamar a nuestra funcion y cerrar nuestra librería:
+Ya solo queda llamar a nuestra función y cerrar nuestra librería:
 ```c++
 hello("JointDeveloper");
 dlclose(handle);
@@ -143,7 +143,7 @@ g++ -std=c++11 LoadLibrary.cpp -o LoadLibrary.bin -ldl
 ./LoadLibrary.bin
 ```
 
-Si miras bien el comando de compilacion estamos haciendo uso de la libreria `dl` esta librería contiene las funciones que anteriormente utilizamos.
+Si miras bien el comando de compilación estamos haciendo uso de la librería `dl`, esta librería contiene las funciónes que anteriormente utilizamos.
 
 ---
 Si has llegado hasta acá espero que esta guia te haya sido de utilidad y pudieras entender de manera clara lo explicado. El código completo lo puedes encontrar en el siguiente repositorio de [GitHub](https://github.com/edoren/BlogCodes/tree/master/dynamic_library_loading_cpp)
