@@ -563,7 +563,10 @@ nav.pagination {
     .sidebar-copyright {
         margin-top: 1rem;
         margin-bottom: 0rem;
-        font-size: .5rem;
+        font-size: .5em;
+        > .fa.fa-heart {
+            color: #be1931;
+        }
     }
 
     // Sticky sidebar
