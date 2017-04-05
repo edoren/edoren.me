@@ -2,17 +2,9 @@
 <html lang="en">
 <head>
   {{ partial "meta.html" . }}
-
   <title>{{ .Title }} - {{ .Site.Author.name }}</title>
-
+  {{ partial "header_icons.html" . }}
   {{ partial "header_includes.html" . }}
-
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ "/apple-touch-icon.png" | absURL }}">
-  <link rel="icon" type="image/png" href="{{ "/favicon-32x32.png" | absURL }}" sizes="32x32">
-  <link rel="icon" type="image/png" href="{{ "/favicon-16x16.png" | absURL }}" sizes="16x16">
-  <link rel="manifest" href="{{ "/manifest.json" | absURL }}">
-  <link rel="mask-icon" href="{{ "/safari-pinned-tab.svg" | absURL }}" color="#5bbad5">
-
   {{ if .RSSLink }}<link href="{{ "{{ .RSSLink }}" | absURL }}" rel="alternate" type="application/rss+xml" title="{{ .Title }}" />{{ end }}
 </head>
 
