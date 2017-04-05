@@ -10,11 +10,8 @@ taxonomies:
     tag: "tags"
     category: "categories"
 
-author:
-    name: "Manuel Sabogal"
-
 params:
-    tagline: "Software Development"
+    description: "Software Development"
 
     highlight: "monokai-sublime"
 
