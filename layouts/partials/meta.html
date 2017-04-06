@@ -7,13 +7,13 @@
 
 <meta name="theme-color" content="#ffffff">
 
-<meta name="description" content="{{ if .IsPage }}{{ .Params.description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="description" content="{{ if .IsPage }}{{ if and (isset .Params "description") (not (eq .Params.description "")) }}{{ .Params.description }}{{ else }}{{ trim (htmlUnescape (.Summary | plainify)) " \n" }}{{ end }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta name="keywords" content="{{ with .Params.tags }}{{ range $index, $element := . }}{{ if $index }}, {{ end }}{{ $element }}{{ end }}{{end}}">
 
 <!-- Open Graph -->
 <meta property="og:type" content="article"/>
 <meta property="og:title" content="{{ .Title }}{{ if not .IsHome }} | {{ .Site.Title }}{{ end }}"/>
-<meta property="og:description" content="{{ if .IsPage }}{{ .Params.description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:description" content="{{ if .IsPage }}{{ if and (isset .Params "description") (not (eq .Params.description "")) }}{{ .Params.description }}{{ else }}{{ trim (htmlUnescape (.Summary | plainify)) " \n" }}{{ end }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta property="og:image" content="https://www.gravatar.com/avatar/{{ .Site.Params.gravatarHash }}?s=200" />
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:locale" content="en_US">
