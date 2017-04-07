@@ -1,30 +1,33 @@
-baseurl: "http://edoren.me/"
-title: "Manuel Sabogal"
-languageCode: "en-us"
-MetaDataFormat: "yaml"
+baseurl: http://edoren.me/
+title: Manuel Sabogal
+languageCode: en-us
+MetaDataFormat: yaml
 
 blackfriday:
     hrefTargetBlank: true
 
 taxonomies:
-    tag: "tags"
-    category: "categories"
+    tag: tags
+    category: categories
+
+author:
+    name: Manuel Sabogal
+    email: mfer32@gmail.com
+    linkedin: edoren
+    github: edoren
+    twitter: ItsEdoren
 
 params:
-    description: "Software Development"
+    description: Software Development
 
-    highlight: "monokai-sublime"
+    highlight: monokai-sublime
 
-    disqusShortname: "edoren"
-    googleAnalytics: "UA-49027257-3"
-    gravatarHash: "fc2e213fc8d2758e7e35017ddd0e2566"
-
-    email: "mfer32@gmail.com"
-    github: "https://github.com/edoren"
-    twitter: "https://twitter.com/ItsEdoren"
+    disqusShortname: edoren
+    googleAnalytics: UA-49027257-3
+    gravatarHash: fc2e213fc8d2758e7e35017ddd0e2566
 
     navlinks:
         - name: Blog
-          url: "blog/"
+          url: blog/
         - name: About
-          url: "about/"
+          url: about/
