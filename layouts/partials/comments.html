@@ -1,9 +1,8 @@
 <section id="comments">
   {{ with .Site.Params.disqusShortname }}
-  <div><h2> Comments </h2></div>
+  <h2>Comments</h2>
   <div id="disqus_thread"></div>
   <script type="text/javascript">
-  var disqus_shortname = "{{ . }}";
   (function () {
     // Don't ever inject Disqus on localhost--it creates unwanted
     // discussions from 'localhost:1313' on your Disqus account...
