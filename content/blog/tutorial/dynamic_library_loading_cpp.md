@@ -1,14 +1,15 @@
 ---
-categories: ["Tutorials", "C++", "Linux"]
+categories: [Tutorials]
 date: 2017-04-01T18:45:08-05:00
-tags: []
-title: Entendiendo el Linkeo en Tiempo de Ejecución en C/C++
+tags: [C++, Linux]
+title: Entendiendo el Linkeo en Tiempo de Ejecución en C++
+description: Qué es y cómo utilizar el linkeo dinámico en C++
 type: other
 ---
 
 Si has llegado a usar C o C++ de seguro alguna vez ha tenido la necesidad de hacer uso de métodos que le faciliten tu trabajo, a nadie le gusta re inventar la rueda (a menos que seas un cavernícola). Y es que muchas veces nos encontramos con casos en los que tenemos que hacer el cálculo de una raiz cuadrada con `sqrt`, o simplemente queremos usar `printf` para imprimir un mensaje en la pantalla.
 
-Y si, cada vez que incluimos estos archivos estamos haciendo uso de una librería [^1], ya sea la librería estandard de C o C++, o alguna otra de la infinidad que existen en Internet.
+Y si, cada vez que incluimos estos archivos estamos haciendo uso de una librería [^1], ya sea la librería estándar de C o C++, o alguna otra de la infinidad que existen en Internet.
 
 Estas librerías lo que hacen es unirse como parte del código de nuestro ejecutable por medio de una operacion llamada Linking [^2]. Hay dos maneras en las que podemos realizar este proceso, en tiempo de compilación y en tiempo de ejecución.
 
@@ -28,7 +29,7 @@ La otra alternativa para poder hacer uso de estas librerías, es cargándolas en
 
 Para poder hacer esto tenemos que hacer uso de librerías del sistema, en este caso haremos uso del encabezado `<dlfcn.h>` que podemos encontrar en Linux y Mac OSX. En Windows hay alternativa similar que se encuentra en el encabezado `<windows.h>` [^4].
 
-### Creando nuestra primera librería
+### Creando Nuestra Primera Librería
 Lo primero que haremos es crear una librería dinámica que nos sirva de ejemplo. Para eso usaremos el siguiente código:
 ```c++
 #include "HelloLibrary.hpp"
@@ -64,7 +65,7 @@ g++ HelloLibrary.cpp -o libHelloLibrary.so -shared -fPIC
 
 ¿Que acaba de pasar acá?, bueno, le estamos diciendo al compilador que queremos compilar el archivo _**HelloLibrary.cpp**_ y generar una librería llamada _**HelloLibrary.so**_, adicionalmente le pasamos dos parámetros más, `-shared` le indica al compilador que queremos hacer un objeto compartido que posteriormente pueda ser Linkeado con otros objetos para crear un ejecutable, `-fPIC` que le dice al compilador que genere código de posición independiente (position-independent code PIC)[^5] el cual es nesario para crear la librería dinámica.
 
-### Usando nuestra librería
+### Usando Nuestra Librería
 Ahora hemos generado nuestra primera librería, ¿pero como hacemos uso de ella?. Para esto vamos a hacer uso de la funciónes `dlopen`, `dlclose` y `dlsym` las cuales tienen la siguiente definición:
 ```c++
 void* dlopen(const char* filename, int flag);
@@ -87,7 +88,7 @@ A la hora de cargar una librería, Linux hace una busqueda en ciertos lugares en
 Como en nuestro caso la librería se encontrará al lado de nuestro ejecutable no tendremos ningún problema. Si la función se ejecuta correctamente `handle` va a tener almacenada nuestra librería. Si falla devolvera `NULL`.
 
 Ahora vamos a cargar la función `SayHello` que declaramos anteriormente, haciendo uso de `dlsym` de la siguiente forma:
-```
+```c++
 PFN_SAY_NAME hello = (PFN_SAY_NAME)dlsym(handle, "SayHello");
 ```
 
@@ -105,7 +106,7 @@ hello("JointDeveloper");
 dlclose(handle);
 ```
 
-#### Todo junto:
+#### Todo Junto:
 ```c++
 #include "HelloLibrary.hpp"
 #include <iostream>
@@ -145,7 +146,6 @@ g++ -std=c++11 LoadLibrary.cpp -o LoadLibrary.bin -ldl
 
 Si miras bien el comando de compilación estamos haciendo uso de la librería `dl`, esta librería contiene las funciónes que anteriormente utilizamos.
 
----
 Si has llegado hasta acá espero que esta guia te haya sido de utilidad y pudieras entender de manera clara lo explicado. El código completo lo puedes encontrar en el siguiente repositorio de [GitHub](https://github.com/edoren/BlogCodes/tree/master/dynamic_library_loading_cpp)
 
 [^1]: [https://en.wikipedia.org/wiki/Library_(computing)](https://en.wikipedia.org/wiki/Library_(computing))
