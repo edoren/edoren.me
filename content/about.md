@@ -4,7 +4,7 @@ date: '2017-04-08T12:45:51-05:00'
 title: About Me
 ---
 
-Hi, my name is Manuel Sabogal 😄, I'm a software developer from Colombia. I ❤️ programming, videogames and gymnastics, those are my inspiration and motivation. My main interest are Computer Graphics and Artifical Inteligence.
+Hi, my name is Manuel Sabogal 😄, I'm a software developer from Colombia. My main interest are Computer Graphics and Artifical Inteligence. I ❤️ programming, videogames and gymnastics, those are my inspiration and motivation.
 
 <!--more-->
 
