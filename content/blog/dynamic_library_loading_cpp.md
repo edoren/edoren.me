@@ -1,5 +1,5 @@
 ---
-date: 2017-04-01T18:45:08-05:00
+date: 2017-04-07T20:18:07-05:00
 categories: [Tutorials]
 tags: [C++, Linux]
 title: Understanding Dynamic Linking in C++
