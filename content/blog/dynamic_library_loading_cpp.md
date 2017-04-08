@@ -1,9 +1,9 @@
 ---
-date: 2017-04-07T20:18:07-05:00
-categories: [Tutorials]
-tags: [C++, Linux]
+id: 72b0b949-23fe-4bba-b86d-3a0815083034
+date: '2017-04-08T12:23:33-05:00'
 title: Understanding Dynamic Linking in C++
-description: What is and how to use dynamic linking in C++
+tags: [C++, Linux]
+categories: [Tutorials]
 type: blog
 ---
 
