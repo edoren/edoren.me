@@ -20,7 +20,7 @@ For reasons of this tutorial we will focus on the second one, but I will still e
 ## In Compile Time
 If use Linux and have ever compiled from the console any program that uses threads, you will know the following command:
 ```bash
-gcc miprograma.c -o miprograma -lpthread
+gcc myprogram.c -o myprogram -lpthread
 ```
 Do you recognize it?, well in this case what we are doing is linking a library in compile time. When we add the `-lpthread` line we are telling the compiler that we are going to use a library called **pthread**, which is the POSIX library for handling threads [^3].
 
