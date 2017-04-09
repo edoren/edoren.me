@@ -385,6 +385,7 @@ a {
  */
 nav.pagination {
     text-align: center;
+    margin-top: 2rem;
 
     > ul {
         padding: 0;
@@ -624,6 +625,9 @@ nav.pagination {
 
     .post-summary {
         margin-bottom: 2rem;
+        &:last-of-type {
+            margin-bottom: 0;
+        }
         > footer {
             margin-top: .5rem;
             text-align: right;
@@ -679,7 +683,7 @@ nav.pagination {
     &:hover, &:focus {
         text-decoration: none;
     }
-    
+
     i.fa {
         width: 1em;
         height: 1em;
