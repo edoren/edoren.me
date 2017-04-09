@@ -113,7 +113,7 @@ typedef void (*PFN_SAY_NAME)(const char*);
 int main(void) {
     void* handle = dlopen("libHelloLibrary.so", RTLD_LAZY);
     if (!handle) {    
-        std::cout << "Could not open the math library" << std::endl;
+        std::cout << "Could not open the library" << std::endl;
         return 1;
     }
 
