@@ -341,18 +341,17 @@ tbody {
  *
  */
 .label {
-    display: inline;
-    padding: .2em .6em .3em;
+    display: inline-block;
+    margin: .1em .25em;
+    padding: .25em .5em;
+    border-radius: .25em;
     font-size: 75%;
-    font-weight: bold;
     line-height: 1;
     color: #fff;
+    background-color: #313131;
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    border-radius: .25em;
-    margin: 0 .25em;
-    background-color: #313131;
     &:empty {
         display: none;
     }
