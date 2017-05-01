@@ -23,9 +23,13 @@
 $sidebar-medium-size: 17rem;
 $sidebar-large-size: 17rem;
 
-$break-small: 38em;
-$break-medium: 48em;
-$break-large: 58em;
+$grid-breakpoints: (
+    xs: 0em,
+    sm: 34em,
+    md: 48em,
+    lg: 62em,
+    xl: 75em
+) !default;
 
 
 /*
@@ -33,17 +37,17 @@ $break-large: 58em;
  *
  * Media queries wrapped inside mixins to allow reusability
  */
-@mixin min-screen-size($media) {
-    @if $media == small {
-        @media only screen and (min-width: $break-small) { @content; }
-    }
-    @else if $media == medium {
-        @media only screen and (min-width: $break-medium) { @content; }
-    }
-    @else if $media == large {
-        @media only screen and (min-width: $break-large) { @content; }
+@mixin media-breakpoint-up($name) {
+    $min: map-get($grid-breakpoints, $name);
+    @if $min != 0 {
+        @media (min-width: $min) {
+            @content;
+        }
+    } @else {
+        @content;
     }
 }
+
 
 /*
  * Global resets
@@ -63,15 +67,15 @@ html {
     margin: 0;
     padding: 0;
 
-    @include min-screen-size(small) {
+    @include media-breakpoint-up(sm) {
         font-size: 18px;
     }
 
-    @include min-screen-size(medium) {
+    @include media-breakpoint-up(md) {
         font-size: 18px;
     }
 
-    @include min-screen-size(large) {
+    @include media-breakpoint-up(lg) {
         font-size: 20px;
     }
 }
@@ -213,7 +217,7 @@ blockquote {
         margin-bottom: 0;
     }
 
-    @include min-screen-size(small) {
+    @include media-breakpoint-up(sm) {
         padding-right: 5rem;
         padding-left: 1.25rem;
     }
@@ -403,7 +407,7 @@ nav.pagination {
                 display: block;
                 padding: 1rem 1.25rem;
 
-                @include min-screen-size(medium) {
+                @include media-breakpoint-up(md) {
                     padding: .75rem 1rem;
                 }
 
@@ -447,10 +451,10 @@ nav.pagination {
     .summary {
         color: #9a9a9a;
         font-size: 12px;
-        @include min-screen-size(medium) {
+        @include media-breakpoint-up(md) {
             font-size: 14px;
         }
-        @include min-screen-size(large) {
+        @include media-breakpoint-up(lg) {
             font-size: 16px;
         }
     }
@@ -468,7 +472,7 @@ nav.pagination {
     padding: 1rem;
     background-color: #202020;
 
-    @include min-screen-size(medium) {
+    @include media-breakpoint-up(md) {
         position: fixed;
         top: 0;
         left: 0;
@@ -477,7 +481,7 @@ nav.pagination {
         text-align: left;
     }
 
-    @include min-screen-size(large) {
+    @include media-breakpoint-up(lg) {
         width: $sidebar-large-size;
     }
 
@@ -489,7 +493,7 @@ nav.pagination {
     // About section
     .sidebar-about  {
         margin-bottom: .5rem;
-        @include min-screen-size(medium) {
+        @include media-breakpoint-up(md) {
             margin-bottom: 1rem;
         }
         img {
@@ -497,12 +501,12 @@ nav.pagination {
             width: 150px;
             height: 150px;
             text-align: center;
-            @include min-screen-size(medium) {
+            @include media-breakpoint-up(md) {
                 margin: 0 auto 0.75rem auto;
                 width: 175px;
                 height: 175px;
             }
-            @include min-screen-size(large) {
+            @include media-breakpoint-up(lg) {
                 margin: 0 auto 1rem auto;
                 width: 200px;
                 height: 200px;
@@ -514,7 +518,7 @@ nav.pagination {
             margin-bottom: 0;
             font-family: "Amaranth", serif;
             font-size: 2.5rem;
-            @include min-screen-size(medium) {
+            @include media-breakpoint-up(md) {
                 font-size: 2rem;
                 margin-bottom: .5rem;
             }
@@ -523,7 +527,7 @@ nav.pagination {
             color: rgba(white, .5);
             font-size: 1.5rem;
             margin-bottom: 0;
-            @include min-screen-size(medium) {
+            @include media-breakpoint-up(md) {
                 font-size: 1.25rem;
             }
         }
@@ -545,7 +549,7 @@ nav.pagination {
                 font-weight: bold;
             }
 
-            @include min-screen-size(medium) {
+            @include media-breakpoint-up(md) {
                 display: block;
                 padding: 0;
                 line-height: 1.50;
@@ -584,7 +588,7 @@ nav.pagination {
 
     // Sticky sidebar
     > .sidebar-sticky {
-        @include min-screen-size(medium) {
+        @include media-breakpoint-up(md) {
             position: absolute;
             right:  1rem;
             bottom: 1rem;
@@ -604,12 +608,12 @@ nav.pagination {
     margin: 0;
     padding: 2rem 1rem;
 
-    @include min-screen-size(medium) {
+    @include media-breakpoint-up(md) {
         margin-left: $sidebar-medium-size;
         padding: 2.5rem 1.5rem;
     }
 
-    @include min-screen-size(large) {
+    @include media-breakpoint-up(lg) {
         margin-left: $sidebar-large-size;
         padding: 3rem 2.5rem;
     }
@@ -650,14 +654,14 @@ nav.pagination {
     .info-column {
         color: #9a9a9a;
         flex-basis: 100%;
-        @include min-screen-size(small) {
+        @include media-breakpoint-up(sm) {
             flex-basis: 36%;
         }
     }
 
     .categories-column, .tags-column {
         flex-basis: 50%;
-        @include min-screen-size(small) {
+        @include media-breakpoint-up(sm) {
             flex-basis: 32%;
         }
     }
@@ -735,18 +739,18 @@ nav.pagination {
  */
 .layout-reverse {
     #sidebar {
-        @include min-screen-size(medium) {
+        @include media-breakpoint-up(md) {
             left: auto;
             right: 0;
         }
     }
     #content {
-        @include min-screen-size(medium) {
+        @include media-breakpoint-up(md) {
             margin-left: 2rem;
             margin-right: 20rem;
         }
 
-        @include min-screen-size(large) {
+        @include media-breakpoint-up(lg) {
             margin-left: 4rem;
             margin-right: 22rem;
         }
