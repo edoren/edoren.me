@@ -5,7 +5,7 @@
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#272727">
 
 <meta name="description" content="{{ if .IsPage }}{{ if and (isset .Params "description") (not (eq .Params.description "")) }}{{ .Params.description }}{{ else }}{{ trim (htmlUnescape (.Summary | plainify)) " \n" }}{{ end }}{{ else }}{{ .Site.Params.description }}{{ end }}">
 <meta name="keywords" content="{{ with .Params.tags }}{{ range $index, $element := . }}{{ if $index }}, {{ end }}{{ $element }}{{ end }}{{end}}">
