@@ -3,6 +3,7 @@ language: go
 install:
     - git clone --branch v0.59.1 --depth 1 https://github.com/gohugoio/hugo.git hugo
     - cd hugo
+    - go clean -modcache
     - go install
 
 script:
