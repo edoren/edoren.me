@@ -1,10 +1,9 @@
 ---
-categories: [Tutorials]
-date: 2017-04-01T18:45:08-05:00
+date: '2017-04-08T12:23:33-05:00'
+title: Entendiendo el Linkeo Dynámico en C++
 tags: [C++, Linux]
-title: Entendiendo el Linkeo en Tiempo de Ejecución en C++
-description: Qué es y cómo utilizar el linkeo dinámico en C++
-type: other
+categories: [Tutoriales]
+type: blog
 ---
 
 Si has llegado a usar C o C++ de seguro alguna vez ha tenido la necesidad de hacer uso de métodos que le faciliten tu trabajo, a nadie le gusta re inventar la rueda (a menos que seas un cavernícola). Y es que muchas veces nos encontramos con casos en los que tenemos que hacer el cálculo de una raiz cuadrada con `sqrt`, o simplemente queremos usar `printf` para imprimir un mensaje en la pantalla.

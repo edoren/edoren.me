@@ -2,15 +2,12 @@ language: go
 go: 1.8
 
 install:
-    - go get github.com/spf13/hugo
-    - go get github.com/wellington/wellington/wt
+    - apt-get install hugo
     - go get github.com/tdewolff/minify/cmd/minify
 
 script:
     - hugo
-    - wt compile public/scss/ --build public/css/
     - minify -r public/ -o public/ --html-keep-whitespace --html-keep-document-tags
-    - rm -r public/scss
 
 deploy:
     provider: pages

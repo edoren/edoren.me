@@ -3,6 +3,16 @@ title: Manuel Sabogal
 languageCode: en-us
 MetaDataFormat: yaml
 
+languages:
+  en:
+    weight: 1
+    languageName: English
+    description: Software Development
+  es:
+    weight: 2
+    languageName: Español
+    description: Desarrollo de Software
+
 blackfriday:
     hrefTargetBlank: true
 
@@ -19,8 +29,6 @@ author:
     linkedin: edoren
 
 params:
-    description: Software Development
-
     highlight: monokai-sublime
 
     disqusShortname: edoren
@@ -28,7 +36,5 @@ params:
     gravatarHash: fc2e213fc8d2758e7e35017ddd0e2566
 
     navlinks:
-        - name: Blog
-          url: blog/
-        - name: About
-          url: about/
+        - blog
+        - about

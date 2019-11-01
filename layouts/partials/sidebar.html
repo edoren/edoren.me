@@ -12,21 +12,22 @@
 
     <ul class="sidebar-nav">
       {{ range .Site.Params.navlinks }}
-        <li><a href="{{ .url | absURL }}">{{ .name }}</a></li>
-      {{end}}
+        {{ $page := $.Site.GetPage . }}
+        <li><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></li>
+      {{ end }}
     </ul>
 
     <div class="sidebar-nav-icons">
-      {{ with .Site.Author.twitter }}<a href="https://twitter.com/{{ . }}" target="_blank"><i class="fa fa-twitter"></i></a>{{ end }}
-      {{ with .Site.Author.github }}<a href="https://github.com/{{ . }}" target="_blank"><i class="fa fa-github"></i></a>{{ end }}
-      {{ with .Site.Author.gitlab }}<a href="https://gitlab.com/{{ . }}" target="_blank"><i class="fa fa-gitlab"></i></a>{{ end }}
-      {{ with .Site.Author.linkedin }}<a href="https://www.linkedin.com/in/{{ . }}" target="_blank"><i class="fa fa-linkedin"></i></a>{{ end }}
-      {{ with .Site.Author.email }}<a href="mailto:{{ . }}"><i class="fa fa-envelope"></i></a>{{ end }}
+      <a href="https://twitter.com/{{ .Site.Author.twitter }}" target="_blank"><i class="fa fa-twitter"></i></a>
+      <a href="https://github.com/{{ .Site.Author.github }}" target="_blank"><i class="fa fa-github"></i></a>
+      <a href="https://gitlab.com/{{ .Site.Author.gitlab }}" target="_blank"><i class="fa fa-gitlab"></i></a>
+      <a href="https://www.linkedin.com/in/{{ .Site.Author.linkedin }}" target="_blank"><i class="fa fa-linkedin"></i></a>
+      <a href="mailto:{{ .Site.Author.email }}"><i class="fa fa-envelope"></i></a>
     </div>
 
     <p class="sidebar-copyright">
       Copyright <i class="fa fa-copyright"></i> {{ now.Year }} Manuel Sabogal<br/>
-      Powered with <i class="fa fa-heart"></i> using <a href="http://gohugo.io" target="_blank">Hugo</a> and <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+      Powered with <i class="fa fa-heart"></i> using <a href="http://gohugo.io" target="_blank">Hugo</a> (v{{ .Hugo.Version }}) and <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
     </p>
   </div>
 </section>
