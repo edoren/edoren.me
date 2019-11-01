@@ -2,11 +2,9 @@ language: go
 
 install:
     - sudo apt-get install hugo
-    - go get github.com/tdewolff/minify/cmd/minify
 
 script:
     - hugo
-    - minify -r public/ -o public/ --html-keep-whitespace --html-keep-document-tags
 
 deploy:
     provider: pages
