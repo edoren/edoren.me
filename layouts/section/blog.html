@@ -5,14 +5,16 @@
     {{ $pages := where $taxonomy.Pages "Type" "blog" }}
     {{ if gt (len $pages) 0 }}
       <h2>{{ title $name }}</h2>
-      <ul>
-        {{ range $pages }}
-        <li>
-          <a href="{{ .Permalink }}">{{ .Title }}</a> &middot;
-          <time>{{ .Date.Format "Jan 2, 2006" }}</time>
-        </li>
-        {{ end }}
-      </ul>
+      <div>
+        <ul>
+          {{ range $pages }}
+          <li>
+            <a href="{{ .Permalink }}">{{ .Title }}</a> &middot;
+            <time>{{ .Date.Format "Jan 2, 2006" }}</time>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
     {{ end }}
   {{ end }}
   </ul>

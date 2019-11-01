@@ -8,7 +8,7 @@ from datetime import datetime, timezone
 
 post_types = {
     "_default": [
-        # ("id", lambda: str(uuid4())),
+        ("id", lambda: str(uuid4())),
         ("date", lambda: datetime.now(timezone.utc).astimezone()
                                  .replace(microsecond=0).isoformat()),
         ("title", "")

@@ -1,4 +1,5 @@
 ---
+id: 72b0b949-23fe-4bba-b86d-3a0815083034
 date: '2017-04-08T12:23:33-05:00'
 title: Entendiendo el Linkeo Dynámico en C++
 tags: [C++, Linux]
