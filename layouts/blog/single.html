@@ -25,7 +25,7 @@
           <ul>
             {{ with .Params.categories }}
               {{ range . }}
-                <li><a href="{{ "/categories/" | absURL }}{{ . | urlize }}">{{ . }}</a></li>
+                <li><a href='{{ print $.Site.LanguagePrefix "/categories/" | absURL }}{{ . | urlize }}'>{{ . | title }}</a></li>
               {{ end }}
             {{ end }}
           </ul>
@@ -34,7 +34,7 @@
           <div><strong>Tags</strong></div>
           {{ with .Params.tags }}
             {{ range . }}
-              <a class="label" href="{{ "/tags/" | absURL }}{{ . | urlize }}">#{{ . | lower }}</a>
+              <a class="label" href='{{ print $.Site.LanguagePrefix "/tags/" . | urlize | absURL }}'>#{{ . | lower }}</a>
             {{ end }}
           {{ end }}
         </div>
@@ -43,7 +43,6 @@
         <div><strong>Share On</strong></div>
         <a class="share-button twitter" href="https://twitter.com/intent/tweet?status={{ .Title }} {{ .Permalink }}" target="_blank" title="Share on Twitter"><i class="fa fa-twitter"></i> Twitter</a>
         <a class="share-button facebook" href="https://facebook.com/sharer/sharer.php{{ .Permalink }}" target="_blank" title="Share on Facebook"><i class="fa fa-facebook"></i> Facebook</a>
-        <a class="share-button google" href="https://plus.google.com/share?url={{ .Permalink }}" target="_blank" title="Share on Google Plus"><i class="fa fa-google-plus"></i> Google+</a>
         <a class="share-button linkedin" href="http://linkedin.com/shareArticle?mini=true&url={{ .Permalink }}&title={{ .Title }}" target="_blank" title="Share on LinkedIn"><i class="fa fa-linkedin"></i> LinkedIn</a>
         <a class="share-button reddit" href="http://reddit.com/submit?url={{ .Permalink }}" target="_blank" title="Share on Reddit"><i class="fa fa-reddit"></i> Reddit</a>
       </div>
