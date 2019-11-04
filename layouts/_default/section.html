@@ -1,6 +1,6 @@
 {{ partial "header.html" . }}
 <section id="content">
-  <h1 class="page-title">{{ .Title }}</h1>
+  <h1 class="page-title">{{ $.Scratch.Get "title" }}</h1>
   <ul>
     {{ range .Data.Pages }}
       <li>

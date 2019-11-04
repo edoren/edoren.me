@@ -1,9 +1,8 @@
 {{ partial "header.html" . }}
 <section id="content">
-  {{ $translatedTitle := title (T (lower .Title)) }}
   {{ $pages := where $.Pages "Type" "blog" }}
   {{ if gt (len $pages) 0 }}
-  <h1>{{ if eq $translatedTitle "" }}{{ .Title }}{{ else }}{{ $translatedTitle }}{{ end }}</h2>
+  <h1>{{ $.Scratch.Get "title" }}</h2>
   <div>
     <ul>
       {{ range $pages }}

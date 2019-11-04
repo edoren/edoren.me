@@ -1,6 +1,6 @@
 {{ partial "header.html" . }}
 <section id="content"div >
-  <h1 class="page-title">{{ .Title }}</h1>
+  <h1 class="page-title">{{ $.Scratch.Get "title" }}</h1>
   {{ $data := .Data }}
   {{ range $key,$value := .Data.Terms.ByCount }}
   <h2><a href="{{ $value.Name | urlize }}"> {{title $value.Name }}</a> {{ $value.Count }} </h2>

@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
   {{ partial "meta.html" . }}
-  <title>{{ .Title }}{{ if not .IsHome }} | {{ .Site.Title }}{{ end }}</title>
+  {{ if eq (T (lower .Title)) "" }}
+    {{ $.Scratch.Set "title" .Title }}
+  {{ else }}
+    {{ $.Scratch.Set "title" (title (T (lower .Title))) }}
+  {{ end }}
+  <title>{{ $.Scratch.Get "title" }}{{ if not .IsHome }} | {{ .Site.Title }}{{ end }}</title>
   {{ partial "header_icons.html" . }}
   {{ partial "header_includes.html" . }}
-  {{ if .RSSLink }}<link href="{{ "{{ .RSSLink }}" | absURL }}" rel="alternate" type="application/rss+xml" title="{{ .Title }}" />{{ end }}
+  {{ if .RSSLink }}<link href='{{ "{{ .RSSLink }}" | absURL }}" rel="alternate" type="application/rss+xml" title="{{ $.Scratch.Get "title" }}' />{{ end }}
 </head>
 
 <body class="theme-base">
