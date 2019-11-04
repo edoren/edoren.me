@@ -18,16 +18,17 @@
     </ul>
 
     <div class="sidebar-nav-icons">
-      <a href="https://twitter.com/{{ .Site.Author.twitter }}" target="_blank"><i class="fa fa-twitter"></i></a>
-      <a href="https://github.com/{{ .Site.Author.github }}" target="_blank"><i class="fa fa-github"></i></a>
-      <a href="https://gitlab.com/{{ .Site.Author.gitlab }}" target="_blank"><i class="fa fa-gitlab"></i></a>
-      <a href="https://www.linkedin.com/in/{{ .Site.Author.linkedin }}" target="_blank"><i class="fa fa-linkedin"></i></a>
-      <a href="mailto:{{ .Site.Author.email }}"><i class="fa fa-envelope"></i></a>
+      <a href="https://twitter.com/{{ .Site.Author.twitter }}" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://github.com/{{ .Site.Author.github }}" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://gitlab.com/{{ .Site.Author.gitlab }}" target="_blank"><i class="fab fa-gitlab"></i></a>
+      <a href="https://www.linkedin.com/in/{{ .Site.Author.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:{{ .Site.Author.email }}"><i class="fas fa-envelope"></i></a>
     </div>
 
     <p class="sidebar-copyright">
-      Copyright <i class="fa fa-copyright"></i> {{ now.Year }} Manuel Sabogal<br/>
-      Powered with <i class="fa fa-heart"></i> using <a href="https://gohugo.io" target="_blank">Hugo</a> (v{{ .Hugo.Version }}) and <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+      Copyright <i class="fas fa-copyright"></i> {{ now.Year }} Manuel Sabogal<br/>
+      Powered with <i class="fas fa-heart"></i> using <a href="https://gohugo.io" target="_blank">Hugo</a> (v{{ .Hugo.Version }}) and <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+      {{ with $.GitInfo }}<br/>Build Version <a href="https://github.com/edoren/edoren.me/commit/{{ .Hash }}" target="_blank">{{ .AbbreviatedHash }}</a>{{ end }}
     </p>
   </div>
 </section>

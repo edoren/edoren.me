@@ -41,12 +41,11 @@
       </div>
       <div id="sharelinks">
         <div><strong>Share On</strong></div>
-        <a class="share-button twitter" href="https://twitter.com/intent/tweet?status={{ .Title }} {{ .Permalink }}" target="_blank" title="Share on Twitter"><i class="fa fa-twitter"></i> Twitter</a>
-        <a class="share-button facebook" href="https://facebook.com/sharer/sharer.php{{ .Permalink }}" target="_blank" title="Share on Facebook"><i class="fa fa-facebook"></i> Facebook</a>
-        <a class="share-button linkedin" href="https://linkedin.com/shareArticle?mini=true&url={{ .Permalink }}&title={{ .Title }}" target="_blank" title="Share on LinkedIn"><i class="fa fa-linkedin"></i> LinkedIn</a>
-        <a class="share-button reddit" href="https://reddit.com/submit?url={{ .Permalink }}" target="_blank" title="Share on Reddit"><i class="fa fa-reddit"></i> Reddit</a>
+        <a class="share-button twitter" href="https://twitter.com/intent/tweet?status={{ .Title }} {{ .Permalink }}" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i> Twitter</a>
+        <a class="share-button facebook" href="https://facebook.com/sharer/sharer.php{{ .Permalink }}" target="_blank" title="Share on Facebook"><i class="fab fa-facebook"></i> Facebook</a>
+        <a class="share-button linkedin" href="https://linkedin.com/shareArticle?mini=true&url={{ .Permalink }}&title={{ .Title }}" target="_blank" title="Share on LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a class="share-button reddit" href="https://reddit.com/submit?url={{ .Permalink }}" target="_blank" title="Share on Reddit"><i class="fab fa-reddit"></i> Reddit</a>
       </div>
-      <hr>
       {{ partial "comments.html" . }}
     </footer>
   </article>
