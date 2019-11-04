@@ -1,7 +1,7 @@
 <section id="sidebar">
   <div class="sidebar-sticky">
     <div class="sidebar-about">
-      <a href="{{ "/" | absURL }}">
+      <a href='{{ print $.Site.LanguagePrefix "/" | absURL }}'>
         {{ if isset .Site.Params "gravatarhash" }}
           <img src="https://www.gravatar.com/avatar/{{ .Site.Params.gravatarHash }}?s=200" alt="Gravatar" title="{{ .Site.Title }}">
         {{ end }}

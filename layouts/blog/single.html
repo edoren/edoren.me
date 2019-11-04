@@ -16,16 +16,16 @@
       <hr>
       <div id="meta">
         <div class="info-column">
-          <div><strong>Information</strong></div>
+          <div><strong>{{ title (i18n "information") }}</strong></div>
           <div>{{ .Date.Format "Jan 2, 2006" }}</div>
-          <div>{{ .WordCount }} Words</div>
+          <div>{{ .WordCount }} {{ title (i18n "words") }}</div>
         </div>
         <div class="categories-column">
-          <div><strong>Categories</strong></div>
+          <div><strong>{{ title (i18n "categories") }}</strong></div>
           <ul>
             {{ with .Params.categories }}
               {{ range . }}
-                <li><a href='{{ print $.Site.LanguagePrefix "/categories/" | absURL }}{{ . | urlize }}'>{{ . | title }}</a></li>
+                <li><a href='{{ print $.Site.LanguagePrefix "/categories/" | absURL }}{{ . | urlize }}'>{{ title (i18n (lower .)) }}</a></li>
               {{ end }}
             {{ end }}
           </ul>
@@ -34,17 +34,17 @@
           <div><strong>Tags</strong></div>
           {{ with .Params.tags }}
             {{ range . }}
-              <a class="label" href='{{ print $.Site.LanguagePrefix "/tags/" . | urlize | absURL }}'>#{{ . | lower }}</a>
+              <a class="label" href='{{ print $.Site.LanguagePrefix "/tags/" . | urlize | absURL }}'>#{{ lower . }}</a>
             {{ end }}
           {{ end }}
         </div>
       </div>
       <div id="sharelinks">
-        <div><strong>Share On</strong></div>
-        <a class="share-button twitter" href="https://twitter.com/intent/tweet?status={{ .Title }} {{ .Permalink }}" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i> Twitter</a>
-        <a class="share-button facebook" href="https://facebook.com/sharer/sharer.php{{ .Permalink }}" target="_blank" title="Share on Facebook"><i class="fab fa-facebook"></i> Facebook</a>
-        <a class="share-button linkedin" href="https://linkedin.com/shareArticle?mini=true&url={{ .Permalink }}&title={{ .Title }}" target="_blank" title="Share on LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a class="share-button reddit" href="https://reddit.com/submit?url={{ .Permalink }}" target="_blank" title="Share on Reddit"><i class="fab fa-reddit"></i> Reddit</a>
+        <div><strong>{{ title (i18n "share_on") }}</strong></div>
+        <a class="share-button twitter" href="https://twitter.com/intent/tweet?text={{ .Title }} {{ .Permalink }}" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i> Twitter</a>
+        <a class="share-button facebook" href="https://www.facebook.com/sharer/sharer.php?t={{ .Title }}&u={{ .Permalink }}" target="_blank" title="Share on Facebook"><i class="fab fa-facebook"></i> Facebook</a>
+        <a class="share-button linkedin" href="https://linkedin.com/shareArticle?mini=true&title={{ .Title }}&url={{ .Permalink }}" target="_blank" title="Share on LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        <a class="share-button reddit" href="https://reddit.com/submit?title={{ .Title | htmlEscape }}&url={{ .Permalink }}" target="_blank" title="Share on Reddit"><i class="fab fa-reddit"></i> Reddit</a>
       </div>
       {{ if eq .Hugo.Environment "production" }}<hr>{{ end }}
       {{ partial "comments.html" . }}

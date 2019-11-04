@@ -1,0 +1,18 @@
+read_more:
+    other: "read more"
+
+share_on:
+    other: "share on"
+
+words:
+    other: "words"
+
+information:
+    other: "information"
+
+categories:
+    other: "categories"
+
+# Tags
+tutorials:
+    other: "tutorials"

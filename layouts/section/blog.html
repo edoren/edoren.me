@@ -4,7 +4,7 @@
   {{ range $name, $taxonomy := .Site.Taxonomies.categories }}
     {{ $pages := where $taxonomy.Pages "Type" "blog" }}
     {{ if gt (len $pages) 0 }}
-      <h2>{{ title $name }}</h2>
+      <h2>{{ title (i18n $name) }}</h2>
       <div>
         <ul>
           {{ range $pages }}
