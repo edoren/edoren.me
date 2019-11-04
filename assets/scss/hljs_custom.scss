@@ -1,0 +1,77 @@
+.hljs {
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    background: #1e1e1e; color: #ddd;
+}
+
+.hljs-tag,
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-strong,
+.hljs-name {
+    color: #569cd6;
+}
+
+.hljs-code {
+    color: #66d9ef;
+}
+
+.hljs-class .hljs-title {
+    color: white;
+}
+
+.hljs-attribute,
+.hljs-symbol,
+.hljs-regexp,
+.hljs-link {
+    color: #bf79db;
+}
+
+.hljs-string,
+.hljs-bullet,
+.hljs-subst,
+.hljs-title,
+.hljs-section,
+.hljs-emphasis,
+.hljs-type,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+    color: #ce9178;
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-deletion {
+    color: #6a9955;
+}
+
+.hljs-meta,
+.hljs-meta-keyword {
+    color: #c586c0;
+}
+
+.hljs-meta-string {
+    color: #ce9178;
+}
+
+.hljs-function {
+    > .hljs-title {
+        color: #dcdcaa;
+    }
+}
+
+.hljs-built_in {
+    color: #4ec9b0;
+}
+
+.hljs-number {
+    color: #b5cea8;
+}
