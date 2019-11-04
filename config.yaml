@@ -1,7 +1,7 @@
 baseURL: https://edoren.me/
 title: Manuel Sabogal
 languageCode: en-us
-MetaDataFormat: yaml
+enableGitInfo: true
 
 languages:
   en:

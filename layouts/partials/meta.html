@@ -1,28 +1,28 @@
 <meta charset="utf-8">
 
+<meta name="theme-color" content="#272727">
+
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="theme-color" content="#272727">
-
-<meta name="description" content="{{ if .IsPage }}{{ if and (isset .Params "description") (not (eq .Params.description "")) }}{{ .Params.description }}{{ else }}{{ trim (htmlUnescape (.Summary | plainify)) " \n" }}{{ end }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="description" content='{{ if .IsPage }}{{ if and (isset .Params "description") (not (eq .Params.description "")) }}{{ .Params.description }}{{ else }}{{ trim (htmlUnescape (.Summary | plainify)) " \n" }}{{ end }}{{ else }}{{ .Site.Params.description }}{{ end }}'>
 <meta name="keywords" content="{{ with .Params.tags }}{{ range $index, $element := . }}{{ if $index }}, {{ end }}{{ $element }}{{ end }}{{end}}">
 
 <!-- Open Graph -->
 <meta property="og:type" content="article"/>
 <meta property="og:title" content="{{ .Title }}{{ if not .IsHome }} | {{ .Site.Title }}{{ end }}"/>
-<meta property="og:description" content="{{ if .IsPage }}{{ if and (isset .Params "description") (not (eq .Params.description "")) }}{{ .Params.description }}{{ else }}{{ trim (htmlUnescape (.Summary | plainify)) " \n" }}{{ end }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:description" content='{{ if .IsPage }}{{ if and (isset .Params "description") (not (eq .Params.description "")) }}{{ .Params.description }}{{ else }}{{ trim (htmlUnescape (.Summary | plainify)) " \n" }}{{ end }}{{ else }}{{ .Site.Params.description }}{{ end }}'>
 <meta property="og:image" content="https://www.gravatar.com/avatar/{{ .Site.Params.gravatarHash }}?s=200" />
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="{{ .Date.Format "2006-01-02" }}"/>
-<meta property="article:modified_time" content="{{ .Date.Format "2006-01-02" }}"/>
-{{ if .Params.tags }}{{ range .Params.tags }}<meta property="article:tag" content="{{ . }}">{{ end }}{{ end }}
+<meta property="article:published_time" content='{{ .PublishDate.Format "2006-01-02" }}'/>
+<meta property="article:modified_time" content='{{ .Lastmod.Format "2006-01-02" }}'/>
+{{ with .Params.tags }}{{ range . }}<meta property="article:tag" content="{{ . }}">{{ end }}{{ end }}
 
 <!-- Twitter Cards -->
-<meta name=”twitter:card” content=”summary”>
+<meta name="twitter:card" content="summary">
 {{ with .Site.Author.twitter }}<meta name="twitter:site" content="@{{ . }}">{{ end }}
 
 <!-- Google Site Verification -->
