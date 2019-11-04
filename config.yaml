@@ -21,7 +21,9 @@ taxonomies:
     category: categories
 
 author:
-    name: Manuel Sabogal
+    first_name: Manuel
+    last_name: Sabogal
+    full_name: Manuel Sabogal
     email: mfer32@gmail.com
     twitter: ItsEdoren
     github: edoren

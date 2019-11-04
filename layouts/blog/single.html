@@ -17,7 +17,7 @@
       <div id="meta">
         <div class="info-column">
           <div><strong>Information</strong></div>
-          <div>{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
+          <div>{{ .Date.Format "Jan 2, 2006" }}</div>
           <div>{{ .WordCount }} Words</div>
         </div>
         <div class="categories-column">
@@ -46,6 +46,7 @@
         <a class="share-button linkedin" href="https://linkedin.com/shareArticle?mini=true&url={{ .Permalink }}&title={{ .Title }}" target="_blank" title="Share on LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
         <a class="share-button reddit" href="https://reddit.com/submit?url={{ .Permalink }}" target="_blank" title="Share on Reddit"><i class="fab fa-reddit"></i> Reddit</a>
       </div>
+      {{ if eq .Hugo.Environment "production" }}<hr>{{ end }}
       {{ partial "comments.html" . }}
     </footer>
   </article>
