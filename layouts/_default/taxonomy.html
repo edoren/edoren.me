@@ -2,7 +2,7 @@
 <section id="content">
   {{ $pages := where $.Pages "Type" "blog" }}
   {{ if gt (len $pages) 0 }}
-  <h1>{{ $.Scratch.Get "title" }}</h2>
+  <h1 class="page-title">{{ $.Scratch.Get "title" }}</h2>
   <div>
     <ul>
       {{ range $pages }}
