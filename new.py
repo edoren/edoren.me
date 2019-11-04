@@ -22,7 +22,7 @@ post_types = {
 
 def setup_yaml():
     import yaml
-    """ http://stackoverflow.com/a/8661021 """
+    """ https://stackoverflow.com/a/8661021 """
     def OrderedDictRepresenter(dumper, data):
         return dumper.represent_mapping('tag:yaml.org,2002:map', data.items())
     yaml.add_representer(OrderedDict, OrderedDictRepresenter)
