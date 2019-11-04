@@ -28,7 +28,7 @@
     <p class="sidebar-copyright">
       Copyright <i class="fas fa-copyright"></i> {{ now.Year }} Manuel Sabogal<br/>
       Powered with <i class="fas fa-heart"></i> using <a href="https://gohugo.io" target="_blank">Hugo</a> (v{{ .Hugo.Version }}) and <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
-      {{ with $.GitInfo }}<br/>Build Version <a href="https://github.com/edoren/edoren.me/commit/{{ .Hash }}" target="_blank">{{ .AbbreviatedHash }}</a>{{ end }}
+      {{ with .Site.Params.buildVersion }}<br/>Build Version <a href="https://github.com/edoren/edoren.me/commit/{{ . }}" target="_blank">{{ substr . 0 7 }}</a>{{ end }}
     </p>
   </div>
 </section>

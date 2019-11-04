@@ -2,9 +2,9 @@ language: go
 
 install:
     - curl -L -o hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.59.1/hugo_extended_0.59.1_Linux-64bit.deb
-
     - sudo dpkg -i hugo.deb
     - sudo apt-get install -f
+    - export HUGO_PARAMS_BUILDVERSION=$TRAVIS_COMMIT
 
 script:
     - hugo

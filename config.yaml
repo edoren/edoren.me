@@ -29,6 +29,8 @@ author:
     linkedin: edoren
 
 params:
+    buildVersion: master
+
     highlight: monokai-sublime
 
     disqusShortname: edoren

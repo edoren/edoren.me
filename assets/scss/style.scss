@@ -582,7 +582,7 @@ nav.pagination {
         margin-top: 1rem;
         margin-bottom: 0rem;
         font-size: .5em;
-        > .fa.fa-heart {
+        > .fa.fa-heart, > .fas.fa-heart {
             color: #be1931;
         }
         @include media-breakpoint-up(md) {
@@ -691,7 +691,7 @@ nav.pagination {
         text-decoration: none;
     }
 
-    i.fa {
+    i.fa, i.fas, i.fab {
         width: 1em;
         height: 1em;
         margin-right: 0.4em;
