@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {{ partial "meta.html" . }}
   {{ if eq (T (lower .Title)) "" }}
     {{ $.Scratch.Set "title" .Title }}
   {{ else }}
     {{ $.Scratch.Set "title" (title (T (lower .Title))) }}
   {{ end }}
+  {{ partial "meta.html" . }}
   <title>{{ $.Scratch.Get "title" }}{{ if not .IsHome }} | {{ .Site.Title }}{{ end }}</title>
   {{ partial "header_icons.html" . }}
   {{ partial "header_includes.html" . }}
