@@ -1,85 +1,56 @@
 #!/usr/bin/env python3
 
+import argparse
 import os
 import os.path
 from collections import OrderedDict
-from uuid import uuid4
 from datetime import datetime, timezone
+from uuid import uuid4
 
-post_types = {
-    "_default": [
-        ("id", lambda: str(uuid4())),
-        ("date", lambda: datetime.now(timezone.utc).astimezone()
-                                 .replace(microsecond=0).isoformat()),
-        ("title", "")
-    ],
-    "blog": [
-        ("tags", []),
-        ("categories", [])
-    ]
-}
+SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 
 
-def setup_yaml():
-    import yaml
-    """ https://stackoverflow.com/a/8661021 """
-    def OrderedDictRepresenter(dumper, data):
-        return dumper.represent_mapping('tag:yaml.org,2002:map', data.items())
-    yaml.add_representer(OrderedDict, OrderedDictRepresenter)
-    return yaml
+def create_post(post_path, post_type):
+    post_vars = {
+        "id": str(uuid4()),
+        "date": datetime.now(timezone.utc).astimezone().isoformat(),
+        "type": post_type
+    }
+    with open(os.path.join(SCRIPT_DIR, "templates", "new_post.md")) as f:
+        data = f.read()
+        with open(post_path, "w") as fpost:
+            fpost.write(data.format(**post_vars))
 
 
-def create_post(post_type, post_path):
-    page_template = "---\n{}---\n\n<!--description-->\n" \
-                    "\n<!--more-->\n\n<!--content-->\n"
+def main(args):
+    post_name = args.name.replace("\\", "/")
+    post_type = args.type
+    content_folder = os.path.join(SCRIPT_DIR, "content")
 
-    contents = post_types["_default"]
-    if post_type is not None:
-        if post_type in post_types:
-            contents += post_types[post_type]
+    post_path = os.path.join(content_folder, post_name)
+    if not os.path.splitext(post_path)[1]:
+        post_path += ".md"
 
-    for i in range(len(contents)):
-        key, value = contents[i]
-        if callable(value):
-            contents[i] = (key, value())
-
-    contents.append(("type", post_type))
-    contents = OrderedDict(contents)
-
-    yaml = setup_yaml()
-
-    content_dump = yaml.dump(contents, default_flow_style=False, indent=4)
-
-    with open(post_path, "w") as f:
-        f.write(page_template.format(content_dump))
-
-
-def main(argv):
-    if len(argv) == 1:
-        print("Error: path needs to be provided")
-        exit(255)
-
-    name = argv[1].replace("\\", "/")
-    content_folder = "content"
-
-    post_path = os.path.abspath(os.path.join(content_folder, name))
     if os.path.exists(post_path):
         print("Error: {} already exists".format(post_path))
-        exit(255)
+        exit(-1)
 
     post_folder = os.path.dirname(post_path)
     if not os.path.exists(post_folder):
         os.makedirs(post_folder)
 
-    tmp = name.split("/")
-    if (len(tmp) == 1):
-        post_type = None
-    else:
-        post_type = tmp[0]
-
-    create_post(post_type, post_path)
+    create_post(post_path, post_type)
 
 
 if __name__ == "__main__":
-    from sys import argv
-    main(argv)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("name",
+                        help="New post file name, this can be a path.\n"
+                        "Eg. blog/tutorials/my_post.md",
+                        type=str)
+    parser.add_argument("-t, --type",
+                        dest="type",
+                        help="The type of the new post. Defaults to 'blog'",
+                        default="blog",
+                        type=str)
+    main(parser.parse_args())

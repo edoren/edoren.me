@@ -1,10 +1,10 @@
 ---
-id: 72b0b949-23fe-4bba-b86d-3a0815083034
+id: '72b0b949-23fe-4bba-b86d-3a0815083034'
 date: '2017-04-08T12:23:33-05:00'
-title: Understanding Dynamic Linking in C++
+title: 'Understanding Dynamic Linking in C++'
 tags: [C++, Linux]
 categories: [tutorials]
-type: blog
+type: 'blog'
 ---
 
 If you've ever used C or C ++ for sure you've had to use methods that make your job easier, no one likes to re-invent the wheel (unless you're a caveman). And is that many times we find cases where we have to do the calculation of a square root with `sqrt`, or we just want to use ` printf` to print a message on the screen.
