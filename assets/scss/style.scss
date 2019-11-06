@@ -93,6 +93,7 @@ body {
 a {
     color: #268bd2;
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
 
     strong {
         color: inherit;
@@ -542,9 +543,11 @@ nav.pagination {
             display: inline;
             padding: 0 .25rem;
 
-            > a:hover, > a:focus {
-                text-decoration: none;
-                border-bottom: 2px solid white;
+            > a {
+                &:hover, &:focus {
+                    text-decoration: none;
+                    border-bottom: 2px solid white;
+                }
             }
 
             @include media-breakpoint-up(md) {
