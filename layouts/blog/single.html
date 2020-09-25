@@ -4,9 +4,11 @@
     <header>
       <h1 id="title" class="post-title">{{ $.Scratch.Get "title" }}</h1>
       <ul>
-      {{ range $.AllTranslations }}
-      <li><a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
-      {{ end }}
+        {{ if gt (len $.AllTranslations) 1 }}
+          {{ range $.AllTranslations }}
+          <li><a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
+          {{ end }}
+        {{ end }}
       <ul>
     </header>
     <body>

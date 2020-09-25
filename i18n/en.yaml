@@ -16,3 +16,6 @@ categories:
 # Categories
 tutorials:
     other: "tutorials"
+
+technical:
+    other: "technical"

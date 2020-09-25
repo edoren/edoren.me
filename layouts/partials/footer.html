@@ -1,5 +1,7 @@
 {{ partial "analytics.html" . }}
 <script src='{{ "/js/highlightjs-line-numbers.js" | absURL }}'></script>
 <script>hljs.initHighlightingOnLoad();hljs.initLineNumbersOnLoad();</script>
+<script src='{{ "/js/coliru.js" | absURL }}'></script>
+<script>window.onload = coliru.addRunButtonsToCodeBlocks</script>
 </body>
 </html>

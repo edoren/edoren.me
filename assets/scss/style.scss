@@ -184,6 +184,12 @@ code {
     background-color: #f5f5f5;
     border-radius: 3px;
     white-space: nowrap;
+    a {
+        color: #bf616a;
+        &:focus, &:hover {
+            text-decoration-color: #bf616a;
+        }
+    }
 }
 pre {
     display: block;
@@ -204,6 +210,21 @@ pre {
             text-align: right;
             border-right: 1px solid rgba(black, .1);
         }
+    }
+}
+
+/* Coliru */
+.coliru {
+    span.runbutton {
+        background-color: #0077b5;
+        color: white;
+        border-radius: 3px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+        padding-bottom: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px
     }
 }
 
@@ -286,9 +307,9 @@ tbody {
  * Each post is wrapped in `.post` and is used on default and post layouts. Each
  * page is wrapped in `.page` and is only used on the page layout.
  */
-.page,
-.post {
-}
+// .page,
+// .post {
+// }
 
 .post .footnotes {
     overflow-x: auto;
