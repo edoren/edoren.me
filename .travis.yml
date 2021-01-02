@@ -8,7 +8,7 @@ install:
     - hugo version
 
 script:
-    - hugo
+    - hugo --minify
 
 deploy:
     provider: pages
