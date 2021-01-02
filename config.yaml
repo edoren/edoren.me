@@ -40,3 +40,7 @@ params:
     navlinks:
         - blog
         - about
+
+markup:
+    highlight:
+        codeFences: false

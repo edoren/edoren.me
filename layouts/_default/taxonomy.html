@@ -7,7 +7,7 @@
     <ul>
       {{ range $pages }}
       <li>
-        <a href="{{ .Permalink }}">{{ .Title }}</a> &middot;
+        <a href="{{ .Permalink }}">{{ .Title }}{{ if .Draft }}<div class="draft">DRAFT</div>{{end}}</a> &middot;
         <time>{{ .Date.Format "Jan 2, 2006" }}</time>
       </li>
       {{ end }}

@@ -2,7 +2,7 @@
 <section id="content">
   <article class="post">
     <header>
-      <h1 id="title" class="page-title">{{ $.Scratch.Get "title" }}</h1>
+      <h1 id="title" class="page-title">{{ $.Scratch.Get "title" }}{{ if .Draft }}<div class="draft">DRAFT</div>{{end}}</h1>
     </header>
     <body>
       {{ .Content }}

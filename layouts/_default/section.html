@@ -4,10 +4,10 @@
   <ul>
     {{ range .Data.Pages }}
       <li>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
+        <a href="{{ .Permalink }}">{{ .Title }}{{ if .Draft }}<div class="draft">DRAFT</div>{{end}}</a>
         {{ if and (isset .Params "categories") (isset .Params "categories") }} &middot;
           {{ range .Params.categories }}
-            <a class="label" href="{{ "/categories/" | absURL }}{{ . | urlize }}">{{ . }}</a>
+            <a class="label" href='{{ "/categories/" | absURL }}{{ . | urlize }}'>{{ . }}</a>
           {{ end }}
         {{ end }}
         &middot; <time>{{ .Date.Format "Jan 2, 2006" }}</time>

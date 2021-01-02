@@ -38,7 +38,6 @@ var coliru = (function () {
 
         coliru.compile(coliru.makeSourceRunnable(sourceCode),
             function (response, state) {
-
                 if (state == 'running') {
                     compileArea.textContent = 'Running...\n';
                 }
@@ -52,27 +51,21 @@ var coliru = (function () {
                         var outputArea = document.createElement('pre');
                         compileArea.appendChild(outputArea);
 
-                        outputArea.className += ' coliru-output';
+                        outputArea.className += 'coliru-output';
                         // Pygments output formatting
                         outputArea.className += ' go';
 
                         outputArea.textContent = response;
                     }
 
-                    var status = document.createElement('div');
-                    compileArea.appendChild(status);
-                    status.className += ' coliru-status';
-                    if (state == 0) {
-                        status.textContent = 'Success';
-                    }
-                    else {
-                        status.textContent =
-                            'Failed (return code ' + state + ')';
-                    }
+                    // var status = document.createElement('div');
+                    // compileArea.appendChild(status);
+                    // status.className += 'coliru-status';
+                    // status.textContent = 'Return code: ' + state;
 
                     var credit = document.createElement('div');
                     compileArea.appendChild(credit);
-                    credit.className += ' coliru-credit';
+                    credit.className += 'coliru-credit';
                     credit.innerHTML += [
                         'Powered by <a ',
                         'href="http://coliru.stacked-crooked.com/">',
@@ -86,10 +79,9 @@ var coliru = (function () {
     }
 
     function createCompileButton(compileArea, compileAction) {
-
         var compileButton = document.createElement('span');
         compileButton.textContent = 'Run this code';
-        compileButton.className += ' runbutton';
+        compileButton.className += 'runbutton';
         compileButton.onclick = compileAction;
         compileButton.onkeydown = compileAction;
 
@@ -99,7 +91,6 @@ var coliru = (function () {
     return {
 
         compile: function (sourceCode, compileReadyResponse) {
-
             var linkOptions = '';
             for (var i = 0; i < coliru.linkLibraries.length; ++i) {
                 linkOptions += '-l' + coliru.linkLibraries[i] + ' ';
@@ -174,7 +165,7 @@ var coliru = (function () {
             var compileArea = document.createElement('div');
 
             // Allow coliru-specific formatting
-            compileArea.className += ' coliru';
+            compileArea.className += 'coliru';
             // Formatting for coliru before it has run the code
             compileArea.setAttribute('data-coliru-state', 'not-run');
 
@@ -190,12 +181,11 @@ var coliru = (function () {
             preCode.parentNode.insertBefore(compileArea, preCode.nextSibling);
         },
 
-        // Onlu update code block inside a <pre> tag and with
-        // class="language-c++ cpp" attribute
+        // Only update code block inside a <pre> tag and with
+        // class "language-c++" or "language-cpp" attribute
         updateCodeBlock: function (codeBlock) {
             if (codeBlock.getAttribute('class')) {
                 var codeBlockClass = codeBlock.getAttribute('class').split(' ');
-                console.log(codeBlockClass)
                 if (codeBlockClass.includes('run') &&
                     codeBlock.parentNode.tagName == 'PRE' &&
                     (codeBlockClass.includes('language-c++') || codeBlockClass.includes('language-cpp'))) {
@@ -205,13 +195,11 @@ var coliru = (function () {
         },
 
         addRunButtonsToCodeBlocks: function () {
-
             var els = document.getElementsByTagName('code');
 
             for (var i = 0; i < els.length; ++i) {
                 coliru.updateCodeBlock(els[i]);
             }
-
         },
     }
 

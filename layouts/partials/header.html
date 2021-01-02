@@ -10,7 +10,7 @@
   <title>{{ $.Scratch.Get "title" }}{{ if not .IsHome }} | {{ .Site.Title }}{{ end }}</title>
   {{ partial "header_icons.html" . }}
   {{ partial "header_includes.html" . }}
-  {{ if .RSSLink }}<link href='{{ "{{ .RSSLink }}" | absURL }}" rel="alternate" type="application/rss+xml" title="{{ $.Scratch.Get "title" }}' />{{ end }}
+  {{ with .OutputFormats.Get "RSS" }}<link href='{{ "{{ .RSSLink }}" | absURL }}" rel="alternate" type="application/rss+xml" title="{{ $.Scratch.Get "title" }}' />{{ end }}
 </head>
 
 <body class="theme-base">
