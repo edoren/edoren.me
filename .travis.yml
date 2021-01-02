@@ -5,6 +5,7 @@ install:
     - sudo dpkg -i hugo.deb
     - sudo apt-get install -f
     - export HUGO_PARAMS_BUILDVERSION=$TRAVIS_COMMIT
+    - hugo version
 
 script:
     - hugo
