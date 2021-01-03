@@ -5,6 +5,8 @@
         {{ if isset .Site.Params "gravatarhash" }}
           <img src="https://www.gravatar.com/avatar/{{ .Site.Params.gravatarHash }}?s=200" alt="Gravatar" title="{{ .Site.Title }}">
         {{ end }}
+      </a>
+      <a href='{{ print $.Site.LanguagePrefix "/" | absURL }}'>
         <h1>{{ .Site.Title }}</h1>
         {{ with .Site.Params.description }}<p class="lead">{{ . | markdownify }}</p>{{ end }}
       </a>
@@ -26,8 +28,8 @@
     </div>
 
     <p class="sidebar-copyright">
-      Copyright <i class="fas fa-copyright"></i> {{ now.Year }} {{ .Site.Author.full_name }}<br/>
-      Powered with <i class="fas fa-heart"></i> using <a href="https://gohugo.io" target="_blank">Hugo</a> (v{{ hugo.Version }}) and <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+      Copyright <i class="fas fa-copyright"></i>&nbsp{{ now.Year }} {{ .Site.Author.full_name }}<br/>
+      Powered with <i class="fas fa-heart"></i>&nbspusing <a href="https://gohugo.io" target="_blank">Hugo</a> (v{{ hugo.Version }}) and <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
       {{ with .Site.Params.buildVersion }}<br/>Build Version <a href="https://github.com/edoren/edoren.me/commit/{{ . }}" target="_blank">{{ substr . 0 7 }}</a>{{ end }}
     </p>
   </div>

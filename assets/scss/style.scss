@@ -14,7 +14,6 @@
  * Themes
  */
 
-
 /*
  * Variables
  *
@@ -28,9 +27,8 @@ $grid-breakpoints: (
     sm: 34em,
     md: 48em,
     lg: 62em,
-    xl: 75em
+    xl: 75em,
 ) !default;
-
 
 /*
  * Media query mixins
@@ -47,7 +45,6 @@ $grid-breakpoints: (
         @content;
     }
 }
-
 
 /*
  * Global resets
@@ -100,15 +97,21 @@ a {
     }
 
     // `:focus` is linked to `:hover` for basic accessibility
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         text-decoration: underline;
         outline: none;
     }
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
-    margin-bottom: .5rem;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-bottom: 0.5rem;
     font-weight: bold;
     line-height: 1.25;
     color: #313131;
@@ -125,7 +128,9 @@ h3 {
     margin-top: 1.5rem;
     font-size: 1.25rem;
 }
-h4, h5, h6 {
+h4,
+h5,
+h6 {
     margin-top: 1rem;
     font-size: 1rem;
 }
@@ -141,7 +146,9 @@ strong {
 }
 
 /* Lists */
-ul, ol, dl {
+ul,
+ol,
+dl {
     margin-top: 0;
     margin-bottom: 1rem;
 }
@@ -150,7 +157,7 @@ dt {
     font-weight: bold;
 }
 dd {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
 }
 
 /* Misc */
@@ -174,26 +181,28 @@ abbr {
 }
 
 /* Code */
-code, pre {
+code,
+pre {
     font-family: "Hack", "Courier New", monospace, "Droid Sans Fallback";
 }
 code {
-    padding: .1em .3em;
-    font-size: .75rem;
+    padding: 0.1em 0.3em;
+    font-size: 0.75rem;
     color: #bf616a;
     background-color: #f5f5f5;
     border-radius: 3px;
     white-space: nowrap;
     a {
         color: #bf616a;
-        &:focus, &:hover {
+        &:focus,
+        &:hover {
             text-decoration-color: #bf616a;
         }
     }
 }
 pre {
     display: block;
-    font-size: .75rem;
+    font-size: 0.75rem;
     line-height: 1.4;
     background-color: #f5f5f5;
     code.hljs {
@@ -208,7 +217,7 @@ pre {
             border-bottom-left-radius: 3px;
             color: #585858;
             text-align: right;
-            border-right: 1px solid rgba(black, .1);
+            border-right: 1px solid rgba(black, 0.1);
         }
     }
 }
@@ -221,32 +230,32 @@ pre {
     font-size: 0.75rem;
     &:not([data-coliru-state="not-run"]) {
         margin-top: 0.5rem;
-        margin-bottom: .75rem;
+        margin-bottom: 0.75rem;
     }
     .runbutton {
         width: max-content;
-        margin: 0rem;
+        margin: 0;
         padding: 0.25rem 0.5rem;
         color: white;
         background-color: #0077b5;
         border-radius: 0.15rem;
     }
     .coliru-output {
-        padding: .5em 1em;
-        margin: 0rem;
+        padding: 0.5em 1em;
+        margin: 0;
     }
     .coliru-credit {
         text-align: right;
-        font-size: .5rem;
+        font-size: 0.5rem;
     }
 }
 
 /* Quotes */
 blockquote {
-    padding: .5rem 1rem;
-    margin: .8rem 0;
+    padding: 0.5rem 1rem;
+    margin: 0.8rem 0;
     color: #7a7a7a;
-    border-left: .25rem solid #e5e5e5;
+    border-left: 0.25rem solid #e5e5e5;
 
     p:last-child {
         margin-bottom: 0;
@@ -274,19 +283,20 @@ table {
     border-collapse: collapse;
 }
 
-td,th {
-    padding: .25rem .5rem;
+td,
+th {
+    padding: 0.25rem 0.5rem;
     border: 1px solid #e5e5e5;
 }
 
 tbody {
     tr:nth-child(odd) {
-        td, th {
+        td,
+        th {
             background-color: #f9f9f9;
         }
     }
 }
-
 
 /*
  * Custom type
@@ -298,7 +308,6 @@ tbody {
     font-size: 1.25rem;
     font-weight: 300;
 }
-
 
 /*
  * Messages
@@ -312,7 +321,6 @@ tbody {
     color: #717171;
     background-color: #f9f9f9;
 }
-
 
 /*
  * Posts and pages
@@ -342,7 +350,7 @@ tbody {
 /* Meta data line below post title */
 .post-date {
     display: block;
-    margin-top: -.5rem;
+    margin-top: -0.5rem;
     margin-bottom: 1rem;
     color: #9a9a9a;
 }
@@ -374,16 +382,15 @@ tbody {
     }
 }
 
-
 /*
  * Labels
  *
  */
 .label {
     display: inline-block;
-    margin: .1em .25em;
-    padding: .25em .5em;
-    border-radius: .25em;
+    margin: 0.1em 0.25em;
+    padding: 0.25em 0.5em;
+    border-radius: 0.25em;
     font-size: 75%;
     line-height: 1;
     color: #fff;
@@ -397,7 +404,8 @@ tbody {
 }
 a {
     &label {
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             color: #fff;
             text-decoration: none;
             cursor: pointer;
@@ -414,7 +422,6 @@ a {
     }
 }
 
-
 /*
  * Pagination
  *
@@ -429,24 +436,25 @@ nav.pagination {
         padding: 0;
         font-family: "PT Sans", Helvetica, Arial, sans-serif;
         color: #ccc;
-        margin-bottom: .25rem;
+        margin-bottom: 0.25rem;
         list-style-type: none;
 
         > li {
             display: inline-block;
             border: 1px solid #eee;
 
-            margin-right: -5px;  // handle spaces between the li elements
+            margin-right: -5px; // handle spaces between the li elements
 
             > a {
                 display: block;
                 padding: 1rem 1.25rem;
 
                 @include media-breakpoint-up(md) {
-                    padding: .75rem 1rem;
+                    padding: 0.75rem 1rem;
                 }
 
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     text-decoration: none;
                     color: #23527c;
                     background-color: #eee;
@@ -495,7 +503,6 @@ nav.pagination {
     }
 }
 
-
 /*
  * Sidebar
  *
@@ -526,8 +533,8 @@ nav.pagination {
     }
 
     // About section
-    .sidebar-about  {
-        margin-bottom: .5rem;
+    .sidebar-about {
+        margin-bottom: 0.5rem;
         @include media-breakpoint-up(md) {
             margin-bottom: 1rem;
         }
@@ -555,11 +562,11 @@ nav.pagination {
             font-size: 2.5rem;
             @include media-breakpoint-up(md) {
                 font-size: 2rem;
-                margin-bottom: .5rem;
+                margin-bottom: 0.5rem;
             }
         }
         p {
-            color: rgba(white, .5);
+            color: rgba(white, 0.5);
             font-size: 1.5rem;
             margin-bottom: 0;
             @include media-breakpoint-up(md) {
@@ -575,10 +582,11 @@ nav.pagination {
 
         > li {
             display: inline;
-            padding: 0 .25rem;
+            padding: 0 0.25rem;
 
             > a {
-                &:hover, &:focus {
+                &:hover,
+                &:focus {
                     text-decoration: none;
                     border-bottom: 2px solid white;
                 }
@@ -587,26 +595,31 @@ nav.pagination {
             @include media-breakpoint-up(md) {
                 display: block;
                 padding: 0;
-                line-height: 1.50;
+                line-height: 1.5;
             }
         }
     }
 
     .sidebar-nav-icons {
+        > :first-child {
+            margin-left: 0;
+        }
         a {
-            display:inline-block;
+            display: inline-block;
             font-size: 1.5em;
             line-height: 1.25em;
+            margin-left: 0.3rem;
             color: #202020;
             background-color: #fff;
             width: 1.25em;
             height: 1.25em;
             text-align: center;
             vertical-align: bottom;
-            border-radius: .25em;
+            border-radius: 0.25em;
             transition: 100ms ease-out;
-            &:hover, &:focus {
-                background-color: rgba(#fff, .7);
+            &:hover,
+            &:focus {
+                background-color: rgba(#fff, 0.7);
                 outline: none;
             }
         }
@@ -615,9 +628,10 @@ nav.pagination {
     .sidebar-copyright {
         // display: none;
         margin-top: 1rem;
-        margin-bottom: 0rem;
-        font-size: .5em;
-        > .fa.fa-heart, > .fas.fa-heart {
+        margin-bottom: 0;
+        font-size: 0.5em;
+        > .fa.fa-heart,
+        > .fas.fa-heart {
             color: #be1931;
         }
         @include media-breakpoint-up(md) {
@@ -629,13 +643,12 @@ nav.pagination {
     > .sidebar-sticky {
         @include media-breakpoint-up(md) {
             position: absolute;
-            right:  1rem;
+            right: 1rem;
             bottom: 1rem;
-            left:   1rem;
+            left: 1rem;
         }
     }
 }
-
 
 /* Content
  *
@@ -661,7 +674,7 @@ nav.pagination {
         padding-left: 0;
         list-style: none;
         li {
-            margin-bottom: .5rem;
+            margin-bottom: 0.5rem;
         }
     }
 
@@ -671,7 +684,7 @@ nav.pagination {
             margin-bottom: 0;
         }
         > footer {
-            margin-top: .5rem;
+            margin-top: 0.5rem;
             text-align: right;
         }
     }
@@ -686,7 +699,9 @@ nav.pagination {
     flex-wrap: wrap;
     flex-direction: row;
 
-    .info-column, .categories-column, .tags-column {
+    .info-column,
+    .categories-column,
+    .tags-column {
         padding: 10px;
     }
 
@@ -698,7 +713,8 @@ nav.pagination {
         }
     }
 
-    .categories-column, .tags-column {
+    .categories-column,
+    .tags-column {
         flex-basis: 50%;
         @include media-breakpoint-up(sm) {
             flex-basis: 32%;
@@ -713,24 +729,27 @@ nav.pagination {
 
 .share-button {
     display: inline-block;
-    margin: .25em;
+    margin: 0.25em;
     padding: 0.5em 0.75em;
-    border-radius: .25em;
+    border-radius: 0.25em;
     line-height: 1;
     color: #fff;
     text-align: center;
     white-space: nowrap;
     transition: 100ms ease-out;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         text-decoration: none;
     }
 
-    i.fa, i.fas, i.fab {
+    i.fa,
+    i.fas,
+    i.fab {
         width: 1em;
         height: 1em;
         margin-right: 0.4em;
-        vertical-align: top
+        vertical-align: top;
     }
 
     &.twitter {
@@ -760,7 +779,6 @@ nav.pagination {
             background-color: #cc4500;
         }
     }
-
 }
 
 /*
@@ -768,9 +786,9 @@ nav.pagination {
  */
 .draft {
     display: inline-block;
-    margin: .1em .25em;
-    padding: .25em .5em;
-    border-radius: .25em;
+    margin: 0.1em 0.25em;
+    padding: 0.25em 0.5em;
+    border-radius: 0.25em;
     font-size: 75%;
     line-height: 1;
     color: #fff;
@@ -805,14 +823,13 @@ nav.pagination {
     }
 }
 
-
 /*
  * Themes
  *
  * This is defaut theme of the blog, it controls the sidebar and links within
  * blog posts.
  */
-.theme-base  {
+.theme-base {
     #sidebar {
         background-color: #202020;
     }
