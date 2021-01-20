@@ -135,7 +135,7 @@ int main() {
 The current API works in the following way:
 
 #### C++
-```c++ 
+```c++
 std::thread thread;
 
 auto prom = Promise<int>([&thread](auto&& resolve, auto&& reject) {
@@ -171,7 +171,7 @@ console.log("HELLO PROMISE")
 ```
 
 As you can see the C++ API is very similar to the one on JavaScript, the biggest
-difference is that we have to directly manage the threads thar the aplication
+difference is that we have to directly manage the threads that the aplication
 uses, in this case join them before finishing.
 
 #### Challenges
@@ -181,8 +181,54 @@ language which means that we have to make sure that the Promise we are handling
 contains one specific type, this lead the implementation to be heavily
 templated.
 
+The second was creating a similar interface to the JavaScript side,
+this was tricky as we have to relly heavily on some of the newest C++ features
+such as `constexpr` conditionals and `<type_traits>` classes in conjunction with
+SFINAE.
 
-
-
+The third one was to make sure that the implementation is thread safe. Promises
+are usually used for asynchronus tasks, and this requirement should be fulfilled
+in order to have a proper implementation.
 
 #### Limitations
+Each created promise contains internally an smart `std::shared_ptr` which handles
+the shared state of the promise, this means that every new promise that is created
+will allocate memory on the heap, also all the callbacks are handled using `std::function`
+which might also allocate on this space, so it's adviced not to use this alot on
+performance reliant tasks such as rendering loops or update cicles.
+
+#### Creating a Promise
+
+Promise is a templated class so it requires a type to work, and the constructor
+should receive a callback that obtain two other fuctions, one to `resolve` the
+Promise and one to `reject` it.
+
+```cpp
+auto prom = Promise<int>([&thread](auto&& resolve, auto&& reject) {
+    resolve(10);
+});
+```
+> The Promise `prom` resolves to `10`
+
+```cpp
+auto prom = Promise<int>([&thread](auto&& resolve, auto&& reject) {
+    reject("Failed Msg");
+});
+```
+> The Promise `prom` fails with a `"Failed Msg"`
+
+This two functions can be owned by the program and later be called when the
+promise fulfills, this can be a network call to get some resources or disk
+access to retrieve the content of any file.
+
+Also this two methods are thread safe which means that they can be called by any
+async task:
+
+```cpp
+auto prom = Promise<int>([&thread](auto&& resolve, auto&& reject) {
+    asyncHTTPRequest("URL", resolve);
+});
+```
+
+##### Promise::then
+The `then` method receives a callback, that could be a lambda or a function pointer, this provided callback should receive as arguments a const reference of the value that the Promise resolves to, eg: 
