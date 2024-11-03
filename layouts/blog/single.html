@@ -43,7 +43,7 @@
       </div>
       <div id="sharelinks">
         <div><strong>{{ title (T "share_on") }}</strong></div>
-        <a class="share-button twitter" href='https://twitter.com/intent/tweet?text={{ $.Scratch.Get "title" }} {{ .Permalink }}' target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i> Twitter</a>
+        <a class="share-button x-twitter" href='https://x.com/intent/tweet?text={{ $.Scratch.Get "title" }} {{ .Permalink }}' target="_blank" title="Share on X"><i class="fab fa-x-twitter"></i> Twitter</a>
         <a class="share-button facebook" href='https://www.facebook.com/sharer/sharer.php?t={{ $.Scratch.Get "title" }}&u={{ .Permalink }}' target="_blank" title="Share on Facebook"><i class="fab fa-facebook"></i> Facebook</a>
         <a class="share-button linkedin" href='https://linkedin.com/shareArticle?mini=true&title={{ $.Scratch.Get "title" }}&url={{ .Permalink }}' target="_blank" title="Share on LinkedIn"><i class="fab fa-linkedin"></i> LinkedIn</a>
         <a class="share-button reddit" href='https://reddit.com/submit?title={{ .Title | htmlEscape }}&url={{ .Permalink }}' target="_blank" title="Share on Reddit"><i class="fab fa-reddit"></i> Reddit</a>

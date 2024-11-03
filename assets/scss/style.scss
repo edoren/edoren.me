@@ -759,6 +759,13 @@ nav.pagination {
         }
     }
 
+    &.x-twitter {
+        background-color: #000000;
+        &:hover {
+            background-color: #222222;
+        }
+    }
+
     &.facebook {
         background-color: #3b5998;
         &:hover {
