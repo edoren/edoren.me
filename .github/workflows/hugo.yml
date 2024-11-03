@@ -19,6 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.128.0
+      HUGO_PARAMS_BUILDVERSION: ${{ github.sha }}
     steps:
       - name: Install Hugo CLI
         run: |
@@ -43,4 +44,3 @@ jobs:
           repository-name: edoren/edoren.github.io
           token: ${{ secrets.EDOREN_ME_PAGES_PAT }}
           branch: master
-          single-commit: true
