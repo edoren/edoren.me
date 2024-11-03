@@ -7,11 +7,13 @@ languages:
   en:
     weight: 1
     languageName: English
-    description: Software Development
+    params:
+        description: Software Development
   es:
     weight: 2
     languageName: Español
-    description: Desarrollo de Software
+    params:
+        description: Desarrollo de Software
 
 blackfriday:
     hrefTargetBlank: true
