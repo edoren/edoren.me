@@ -20,15 +20,15 @@
     </ul>
 
     <div class="sidebar-nav-icons">
-      <a href="https://twitter.com/{{ .Params.author.twitter }}" target="_blank"><i class="fab fa-twitter"></i></a>
-      <a href="https://github.com/{{ .Params.author.github }}" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://gitlab.com/{{ .Params.author.gitlab }}" target="_blank"><i class="fab fa-gitlab"></i></a>
-      <a href="https://www.linkedin.com/in/{{ .Params.author.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
-      <a href="mailto:{{ .Params.author.email }}"><i class="fas fa-envelope"></i></a>
+      <a href="https://twitter.com/{{ .Site.Params.author.twitter }}" target="_blank"><i class="fab fa-twitter"></i></a>
+      <a href="https://github.com/{{ .Site.Params.author.github }}" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://gitlab.com/{{ .Site.Params.author.gitlab }}" target="_blank"><i class="fab fa-gitlab"></i></a>
+      <a href="https://www.linkedin.com/in/{{ .Site.Params.author.linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:{{ .Site.Params.author.email }}"><i class="fas fa-envelope"></i></a>
     </div>
 
     <p class="sidebar-copyright">
-      Copyright <i class="fas fa-copyright"></i>&nbsp{{ now.Year }} {{ .Params.author.full_name }}<br/>
+      Copyright <i class="fas fa-copyright"></i>&nbsp{{ now.Year }} {{ .Site.Params.author.full_name }}<br/>
       Powered with <i class="fas fa-heart"></i>&nbspusing <a href="https://gohugo.io" target="_blank">Hugo</a> (v{{ hugo.Version }}) and <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
       {{ with .Site.Params.buildVersion }}<br/>Build Version <a href="https://github.com/edoren/edoren.me/commit/{{ . }}" target="_blank">{{ substr . 0 7 }}</a>{{ end }}
     </p>
