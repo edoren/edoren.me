@@ -30,8 +30,8 @@
 {{ else if eq .Permalink $aboutPage.Permalink }}
   <meta property="og:type" content="profile" />
   <meta property="og:description" content='{{ .Summary }}'>
-  <meta property="profile:first_name" content="{{ .Site.Author.first_name }}">
-  <meta property="profile:last_name" content="{{ .Site.Author.last_name }}">
+  <meta property="profile:first_name" content="{{ .Params.author.first_name }}">
+  <meta property="profile:last_name" content="{{ .Params.author.last_name }}">
 {{ else }}
   <meta property="og:type" content="website" />
   <meta property="og:description" content='{{ .Site.Params.description }}'>
@@ -39,7 +39,7 @@
 
 <!-- Twitter Cards -->
 <meta name="twitter:card" content="summary">
-{{ with .Site.Author.twitter }}
+{{ with .Params.author.twitter }}
   <meta name="twitter:site" content="@{{ . }}">
   <meta name="twitter:creator" content="@{{ . }}" />
 {{ end }}
