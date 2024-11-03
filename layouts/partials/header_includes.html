@@ -5,9 +5,7 @@
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i">
 <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css'>
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/fontawesome.min.css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/brands.css">
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/solid.css">
+<script src="https://kit.fontawesome.com/d1e372aeef.js" crossorigin="anonymous"></script>
 
 {{ $customTheme := resources.Get "scss/hljs_custom.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.16.2/build/styles/default.min.css" />
