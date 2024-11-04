@@ -28,8 +28,8 @@
     </div>
 
     <p class="sidebar-copyright">
-      Copyright <i class="fas fa-copyright"></i>&nbsp{{ now.Year }} {{ .Site.Params.author.full_name }}<br/>
-      Powered with <i class="fas fa-heart"></i>&nbspusing <a href="https://gohugo.io" target="_blank">Hugo</a> (v{{ hugo.Version }}) and <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
+      Copyright <i class="fas fa-copyright"></i>&nbsp;{{ now.Year }} {{ .Site.Params.author.full_name }}<br/>
+      Powered with <i class="fas fa-heart" style="color: #ff4033;"></i>&nbsp;using <a href="https://gohugo.io" target="_blank">Hugo</a> (v{{ hugo.Version }}) and <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>
       {{ with .Site.Params.buildVersion }}<br/>Build Version <a href="https://github.com/edoren/edoren.me/commit/{{ . }}" target="_blank">{{ substr . 0 7 }}</a>{{ end }}
     </p>
   </div>
